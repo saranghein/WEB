@@ -1,0 +1,844 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 4주차 워크북</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="104b3d9c-9f1e-4ec4-ac16-bce06f3799bb" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">4️⃣</span></div><h1 class="page-title">Web 4주차 워크북</h1></header><div class="page-body"><h1 id="3ebab71c-3296-4f6a-bfd2-db4e4969657c" class="">핵심 키워드 🎯 </h1><pre id="d1b20838-9a79-464b-9194-82b616962a22" class="code"><code>&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;h1 id=&quot;title&quot;&gt;Bucket List&lt;/h1&gt;
+      &lt;p&gt;
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique modi
+        eius sed nesciunt veritatis deleniti aperiam. Vero veritatis fugiat eos,
+        deserunt, neque repudiandae impedit eius odio ex, voluptatem harum
+        magni!
+      &lt;/p&gt;
+      &lt;p&gt;&lt;/p&gt;
+
+      &lt;div class=&quot;city&quot;&gt;
+        &lt;h2&gt;&lt; BEST 5 &gt;&lt;/h2&gt;
+        &lt;ul id=&quot;cityList&quot;&gt;
+          &lt;li&gt;Bangkok&lt;/li&gt;
+          &lt;li&gt;London&lt;/li&gt;
+          &lt;li&gt;New York&lt;/li&gt;
+          &lt;li&gt;Paris&lt;/li&gt;
+          &lt;li&gt;Toronto&lt;/li&gt;
+          &lt;li&gt;Barcelona&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;</code></pre><ul id="82b349cf-8092-4eaf-ad5b-c0725eba4a12" class="toggle"><li><details open=""><summary>DOM과 JavaScript</summary><ul id="712a7938-dbc4-4de4-bbb2-305112609fd5" class="toggle"><li><details open=""><summary>document</summary><p id="22347aca-45f8-4151-a15d-8c7324cf7ded" class="">document=html</p></details></li></ul></details></li></ul><ul id="5adac27c-7835-4a7e-972d-208c24a90a12" class="toggle"><li><details open=""><summary>getElementsByTagName( )</summary><pre id="2dc3acc7-82f6-4c79-bf4e-34caed63a093" class="code"><code>//태그 안에 있는 것들을 배열로 만들어 줌
+const $body = document.getElementsByTagName(&quot;body&quot;);//태그 이름
+consol.log($body);//[object HTMLCollection]: index가 key값으로
+consol.log($body[0]);//해당 되는 body 모두 보여줌
+consol.log($body[0].innerText);//innerText: 태그를 제외한 text 나열
+consol.log($body[0].innerHTML);//innerHTML: 태그를 포함한 text 나열
+</code></pre></details></li></ul><ul id="ada30586-27d5-4ff0-a2a4-fa9519692d25" class="toggle"><li><details open=""><summary>getElementsByClassName( )</summary><pre id="a124c9c0-3bab-4285-a394-d4e8f5bd7c65" class="code"><code>const $container = document.getElementsByClassName(&quot;container&quot;);
+console.log($container[0]);//[object HTMLCollection]
+console.log($container[0].innerText);</code></pre></details></li></ul><ul id="ea44509f-20a8-48c7-bbed-1d77f1cdc89d" class="toggle"><li><details open=""><summary>getElementById( )</summary><pre id="26b5a156-e527-40e4-a7b6-82c9cc1c8c24" class="code"><code>const $title = document.getElementById(&quot;title&quot;);//id이름 s가 없는 것을 확인할 수 있음
+console.log($title);//[object HTMLCollection] 배열이 아닌 하나의 Element값 반환
+
+const $cityList = document.getElementById(&quot;cityList&quot;);
+const $cities = $cityList.getElementsByTagName(&quot;li&quot;);//document대신 cityList
+console.log($cityList);//cityList안의 li들이 유사배열형태로 반환됨</code></pre></details></li></ul><ul id="b593d453-5b80-4bf5-be4a-1e87eaf1e8c0" class="toggle"><li><details open=""><summary>querySelector</summary><pre id="42058d7d-4efb-4d08-a60c-886d3aa31c6c" class="code"><code>const $cities = $cityList.querySelector(&#x27;li&#x27;);//첫번째 원소 &quot;Bangkok&quot;만 cities에 넣어줌
+const $cities = $cityList.querySelectorAll(&#x27;li&#x27;);//모두 넣어줌, 유사배열형태
+//[object NodeList]
+//for Each 지원: HTMLCollection objectNodeList
+
+//cities 의 도시이름만 출력하고 싶을 때
+$cities.map(city =&gt; console.log(city.innerText)); 
+//map,filter은 타겟이 배열일 때만 가능 cities는 유사배열이므로 오류
+$cities.forEach(city =&gt; console.log(city.innerText));</code></pre><pre id="9b5513bf-5c4f-4caf-a4a4-63bada257176" class="code"><code>const $cities = $cityList.getElementsByTagName(&quot;li&quot;);
+$cities.forEach(city =&gt; console.log(city.innerText));
+//HTMLCollection은 forEach 지원안하므로</code></pre><pre id="96267902-5f09-452a-b9f5-f59d5b3fda07" class="code"><code>/*
+배열로 변환
+spread operator , Array.from
+*/
+//1. spread operator:배열로 변환
+const newCities = [...$cities]//[object Array]
+newCities.map(city =&gt; console.log(city.innerText))
+
+//2. Array.from
+const newCities = Array.from($cities);//[object Array]
+newCities.map((city) =&gt; console.log(city.innerText));</code></pre><pre id="2cc21c54-8a2b-42f1-b080-65bfa41afad8" class="code"><code>//색
+const $cityDiv = document.querySelector(&quot;.city&quot;);//class이므로 .
+$body[0].style.backgroundColor = &quot;teal&quot;;//유사 배열이므로 index입력 필요
+$cityDiv.style.color = &quot;grey&quot;;</code></pre></details></li></ul><ul id="9de648f6-8743-46db-8363-d89a8d208fa5" class="toggle"><li><details open=""><summary>appendChild</summary><pre id="2316abcf-ae6a-4522-9d3d-fd36829449a2" class="code"><code>// element추가
+const worstCity = document.createElement(&quot;ul&quot;);
+const worstCityArr = [&quot;Cairo&quot;, &quot;London&quot;, &quot;Risbon&quot;, &quot;Sydney&quot;];
+
+worstCityArr.map((city) =&gt; {
+  const worstCityItem = document.createElement(&quot;li&quot;);
+  worstCityItem.innerText = city;
+  console.log(worstCityItem);
+  worstCity.appendChild(worstCityItem);//ul에 넣어주기
+});
+
+consol.log(worstCity);
+//&lt;ul&gt;&lt;li&gt;Cairo&lt;/li&gt;&lt;li&gt;London&lt;/li&gt;&lt;li&gt;Risbon&lt;/li&gt;&lt;li&gt;Sydney&lt;/li&gt;</code></pre></details></li></ul><ul id="d326ebde-51a6-4e3f-8791-bde9d3d40c06" class="toggle"><li><details open=""><summary>insertAdjacentHTML</summary><pre id="aed8876f-1221-44f8-b494-91f464dbca0a" class="code"><code>//$citydiv.appendchild(worstCity)도 가능
+const worstCityList = `
+&lt;ul&gt;
+  &lt;li&gt;Cairo&lt;/li&gt;
+  &lt;li&gt;London&lt;/li&gt;
+  &lt;li&gt;Risbon&lt;/li&gt;
+  &lt;li&gt;Sydney&lt;/li&gt;
+&lt;ul&gt;
+`
+$cityDiv.insertAdjacentHTML(&#x27;beforeend&#x27;,worstCityList);
+/*
+element.insertAdjacentHTML(position, text)
+beforebegin: element 앞에
+afterbegin: element 안에 가장 첫번째 child
+beforeend: element 안에 가장 마지막 child
+afterend: element 뒤에
+*/</code></pre><pre id="7b171e4e-e424-4f25-9a40-482c51106e23" class="code"><code>const worstCityDiv = document.createElement(&quot;div&quot;);
+const worstCitySubTitle = document.createElement(&quot;h2&quot;);
+
+worstCitySubTitle.innerText = &quot;&lt; Worst 5 &gt;&quot;;
+worstCityDiv.appendChild(worstCitySubTitle);//div에 넣어줌
+
+worstCityDiv.appendChild(worstCity);//ul안으로 넣어줌
+$container[0].appendChild(worstCityDiv);//container안에 넣어줌</code></pre><pre id="65aa0a14-f172-42c2-913f-7ed1b961e956" class="code"><code>//스타일 추가
+// classList: 해당 element들의 class를 배열형태로
+worstCityDiv.classList.add(&quot;city&quot;);//add: class추가-&gt;스타일 적용
+worstCityDiv.classList.remove(&#x27;city&#x27;);//remove: 스타일 적용X
+
+//속성 추가
+//setAttribute
+worstCity.setAttribute(&quot;name&quot;, &quot;worstCity&quot;);
+console.log(worstCity);//ul에 name=&quot;worstCity&quot; 속성이 적용됨</code></pre></details></li></ul><h1 id="3679365f-51f7-47fc-a34e-3120fd6f2dfe" class="">4주차 수업 후기 📢</h1><ul id="70464073-3e6b-4995-8087-d7e7ab0019d3" class="bulleted-list"><li style="list-style-type:disc">4주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="2306d87d-22d1-41a4-a487-5cf207859853" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="b5f2035b-f599-492f-86d6-3a6450673e35" class="">실습 체크리스트✅</h1><ul id="3f96b86b-9c21-496d-b148-70587b5c7124" class="toggle"><li><details open=""><summary>document</summary><ul id="d941f96e-3938-4052-9a5e-b2e9d8acd0b5" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">getElementsByTagName, getElementsByClassName, getElementById 를 사용하여 코드를 아래에 작성해주세요</span></li></ul><ul id="f5383f78-eb31-4d67-a3e7-5bf68f6cfc61" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">innerText </span></li></ul><ul id="3d7774d0-9eb9-4d98-8893-baeabca82997" class="toggle"><li><details open=""><summary>코드</summary><pre id="51f6d1a9-30f4-4859-9f69-3a0367cc6738" class="code code-wrap"><code>const $div = document.getElementsByTagName(&quot;div&quot;);
+console.log($div[0])
+console.log($div[0].innerText);</code></pre><figure id="1f1f2498-642c-4cbd-acd8-17425e58a3f0" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled.png"><img style="width:691px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled.png"/></a></figure><figure id="c7e589d2-5237-4715-b421-cb93a0cfcc8c" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%201.png"><img style="width:861px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%201.png"/></a></figure><pre id="4263d342-7c2f-49d4-bcf2-a8d0404d73ed" class="code"><code>const $city = document.getElementsByClassName(&quot;city&quot;);
+console.log($city[0]);
+console.log($city[0].innerText);</code></pre><figure id="52a7c48b-9b28-4cce-95e2-8b33becf7aba" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%202.png"><img style="width:311px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%202.png"/></a></figure><figure id="04c26b92-1dd9-407c-ac65-c52f865556a3" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%203.png"><img style="width:230px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%203.png"/></a></figure><pre id="1b403db4-b332-4694-96bf-a5b7be0c84a3" class="code"><code>const $title = document.getElementById(&quot;title&quot;);
+console.log($title);
+console.log($title.innerText);</code></pre><figure id="da93a2bb-436d-470b-b40c-78199ba8ed9d" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%204.png"><img style="width:281px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%204.png"/></a></figure></details></li></ul></details></li></ul><ul id="f54e1ccf-ef35-43df-8f3a-9a06ee49f5b1" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">spread operator </span><ul id="510c1829-70a6-46ab-a13d-8fdb584a3e25" class="toggle"><li><details open=""><summary>코드</summary><pre id="6e31a206-e4a9-4940-b180-dcfdf60a57f1" class="code"><code>const $cityList = document.getElementById(&quot;cityList&quot;);
+const $cities = $cityList.getElementsByTagName(&quot;li&quot;);
+const newCities = [...$cities];
+console.log($cities);
+console.log(newCities);</code></pre><figure id="704be3f4-cc83-4035-b838-5205b70b752a" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%205.png"><img style="width:871px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%205.png"/></a></figure></details></li></ul></li></ul><ul id="91f13e69-9110-421a-a610-e8398c9f9491" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Array.from </span><ul id="dcf35256-21cb-47e1-92b5-8445a673e0d2" class="toggle"><li><details open=""><summary>코드</summary><pre id="61d00cb7-c085-4781-a57c-a19ef556228f" class="code"><code>const $cityList = document.getElementById(&quot;cityList&quot;);
+const $cities = $cityList.getElementsByTagName(&quot;li&quot;);
+const newCities = Array.from($cities);
+console.log($cities);
+console.log(newCities);</code></pre><figure id="e73f02dc-1c1b-4036-99e5-da14181986b7" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%206.png"><img style="width:766px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%206.png"/></a></figure></details></li></ul></li></ul><ul id="c85deb2a-a620-4e34-aa4d-0ab569495851" class="toggle"><li><details open=""><summary>element</summary><ul id="4b37dbf5-0bc0-408e-b4ea-eae3121d3a0b" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">classList </span><ul id="10f0b53d-e769-4da0-b8b1-103b616e7710" class="toggle"><li><details open=""><summary>코드</summary><pre id="19896ae7-1040-4097-aab3-754982c8979a" class="code"><code>const $body = document.getElementsByTagName(&quot;body&quot;);
+const $container = document.getElementsByClassName(&quot;container&quot;);
+const $cityList = document.getElementById(&quot;cityList&quot;);
+const $cities = $cityList.getElementsByTagName(&quot;li&quot;);
+const $cityDiv = document.querySelector(&quot;.city&quot;);
+
+const newCities = Array.from($cities);
+newCities.map((city) =&gt; console.log(city.innerText));
+
+$body[0].style.backgroundColor = &quot;teal&quot;;
+$cityDiv.style.color = &quot;red&quot;;
+
+const worstCity = document.createElement(&quot;ul&quot;);
+const worstCityDiv = document.createElement(&quot;div&quot;);
+const worstCitySubTitle = document.createElement(&quot;h2&quot;);
+const worstCityArr = [&quot;Seoul&quot;, &quot;London&quot;, &quot;Risbon&quot;, &quot;Sydney&quot;];
+
+worstCitySubTitle.innerText = &quot;&lt; New 5 &gt;&quot;;
+worstCityDiv.appendChild(worstCitySubTitle);
+
+worstCityArr.map((city) =&gt; {
+  const worstCityItem = document.createElement(&quot;li&quot;);
+  worstCityItem.innerText = city;
+  console.log(worstCityItem);
+  worstCity.appendChild(worstCityItem);
+});
+
+worstCityDiv.appendChild(worstCity);
+$container[0].appendChild(worstCityDiv);</code></pre><figure id="129ad667-db74-4a75-96d6-c26133a46e9c" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%207.png"><img style="width:736px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%207.png"/></a></figure><pre id="8da9374b-6706-412f-a9f7-b7f55c003bcc" class="code"><code>worstCityDiv.classList.add(&quot;city&quot;);</code></pre><figure id="7492bb41-1269-454e-9cdd-0b0b4c0a846e" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%208.png"><img style="width:712px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%208.png"/></a></figure></details></li></ul></li></ul><ul id="022e97ac-7f3f-4c98-a0d8-25a02bfab9cf" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">setAttribute </span><ul id="ec1017ab-b4d6-4ed8-bb9a-04e6c91c2562" class="toggle"><li><details open=""><summary>코드</summary><pre id="fa395e14-e31f-4513-913e-29bbff2c94cd" class="code"><code>const newCity = document.createElement(&quot;ul&quot;);
+newCity.setAttribute(&quot;name&quot;, &quot;newCity&quot;);
+console.log(newCity);</code></pre><figure id="569ab742-45ee-4040-8a41-8a57dfa78756" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%209.png"><img style="width:222px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%209.png"/></a></figure></details></li></ul></li></ul><ul id="719311fe-2bd2-4bda-a91e-d129d90c17b2" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">appendChild </span><ul id="92989e56-7f6e-4c9d-9a76-a14a0ddad67a" class="toggle"><li><details open=""><summary>코드</summary><pre id="10effd17-9071-4634-868f-9041c3a673b4" class="code"><code>const $container=document.getElementsByClassName(&quot;container&quot;);
+const newCity = document.createElement(&quot;ul&quot;);
+const newCityDiv = document.createElement(&quot;div&quot;);
+const newCitySubTitle = document.createElement(&quot;h2&quot;);
+
+newCitySubTitle.innerText = &quot;&lt; New 5 &gt;&quot;;
+newCityDiv.appendChild(newCitySubTitle);
+$container[0].appendChild(newCityDiv);</code></pre><figure id="686cb497-2f6a-4e05-9833-ae1a2447baac" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%2010.png"><img style="width:888px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%2010.png"/></a></figure></details></li></ul></li></ul><ul id="afa772ad-7cd3-4fc8-9392-e0fc08ac7217" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">insertAdjacentHTML</span><ul id="b3e50048-c5b2-40de-8abb-84cb6b69de48" class="toggle"><li><details open=""><summary>코드</summary><pre id="12de5bf8-b0ef-4eee-a7c2-35c4c10042e2" class="code"><code>const $container=document.getElementsByClassName(&quot;container&quot;);
+const newCity = document.createElement(&quot;ul&quot;);
+const newCityDiv = document.createElement(&quot;div&quot;);
+const newCitySubTitle = document.createElement(&quot;h2&quot;);
+
+newCitySubTitle.innerText = &quot;&lt; New 5 &gt;&quot;;
+newCityDiv.appendChild(newCitySubTitle);
+$container[0].appendChild(newCityDiv);
+
+
+const newCityList = `
+&lt;ul&gt;
+  &lt;li&gt;Seoul&lt;/li&gt;
+  &lt;li&gt;London&lt;/li&gt;
+  &lt;li&gt;Risbon&lt;/li&gt;
+  &lt;li&gt;Sydney&lt;/li&gt;
+&lt;ul&gt;
+`
+newCityDiv.insertAdjacentHTML(&#x27;beforeend&#x27;,newCityList);</code></pre><figure id="b4301cda-f435-40ce-8495-1bbd712933d9" class="image"><a href="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%2011.png"><img style="width:448px" src="Web%204%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20104b3d9c9f1e4ec4ac16bce06f3799bb/Untitled%2011.png"/></a></figure></details></li></ul></li></ul></details></li></ul><h1 id="7c50834f-a586-4eb6-bddf-5e8c43e96cec" class=""> !주의사항</h1><p id="94a8e69f-015f-4de0-a9ce-f1dd2a177008" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="82d6df56-8819-4bb7-b62e-30c107706f8f" class="">논의해보면 좋은 것들 🔥</h1><ul id="d35a5d6f-d509-4a76-a9dc-22b697db350d" class="bulleted-list"><li style="list-style-type:disc">JavaScript가 브라우저에서 동작하는 원리에 대해서 알아보기</li></ul><ul id="0b569e16-8e93-4f50-b2ee-b3a8003af09a" class="bulleted-list"><li style="list-style-type:disc">JavaScript가 HTML을 제어하는 과정에 대해서 알아보기</li></ul><ul id="efaa3687-4e02-4e0b-b2b1-1a0a44afbdb2" class="bulleted-list"><li style="list-style-type:disc">appendChild와 insertAdjecentHTML의 차이 알아보기</li></ul><p id="2354b3b0-c639-4363-9838-149d1abb089d" class="">
+</p></div></article></body></html>

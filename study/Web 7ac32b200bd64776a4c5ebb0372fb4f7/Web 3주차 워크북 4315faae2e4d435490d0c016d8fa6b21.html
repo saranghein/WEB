@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 3주차 워크북</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4315faae-2e4d-4354-90d0-c016d8fa6b21" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">3️⃣</span></div><h1 class="page-title">Web 3주차 워크북</h1></header><div class="page-body"><blockquote id="81c3ceb6-74f0-4c0b-81ea-63bd72a01397" class="">Made by 곤</blockquote><h1 id="a67e0915-1447-49f4-908b-dc81d53eb10c" class="">핵심 키워드 🎯 </h1><ul id="85a6e4ed-66e8-485b-b411-5bca14b38f21" class="bulleted-list"><li style="list-style-type:disc">JavaScript<ul id="f46c71fc-43f9-48d9-8cd0-746a9870a915" class="bulleted-list"><li style="list-style-type:circle">ES6</li></ul></li></ul><ul id="7ec1e45c-54dc-4cd4-9264-0d10349d8f87" class="toggle"><li><details open=""><summary>JavaScript 문법</summary><ul id="93ad897b-b361-40c8-883f-75e875021093" class="toggle"><li><details open=""><summary>변수</summary><ul id="1d97f83b-99e1-411e-8a37-ff1017e42eec" class="bulleted-list"><li style="list-style-type:disc">const: 값이 변하지 않을 때</li></ul><ul id="4aa4cf6a-bc2f-48a1-a191-94b2394a88f4" class="bulleted-list"><li style="list-style-type:disc">let: 변할 때</li></ul></details></li></ul><ul id="0c06b36b-a634-4097-ad88-2fb7c287e51e" class="toggle"><li><details open=""><summary>데이터 타입 </summary><ul id="1e5888c1-cfb8-4732-8599-cce84282b61d" class="bulleted-list"><li style="list-style-type:disc">string: ’’ “”</li></ul><ul id="31c7e1bc-bde0-4ccb-b171-121fc1837203" class="bulleted-list"><li style="list-style-type:disc">숫자(bigInt: 큰값)</li></ul><ul id="bc50a5dd-c855-4125-a75b-2d9677e6443e" class="bulleted-list"><li style="list-style-type:disc">boolean: true/false</li></ul><ul id="0c3fd561-31c4-4099-9d0d-ad1ef63c1186" class="bulleted-list"><li style="list-style-type:disc">symbol: 중복되지 않는 고유값</li></ul><ul id="f420eb0e-a6d3-4b52-a002-54fd0eb02380" class="bulleted-list"><li style="list-style-type:disc">null / undefined
+null: 수동적으로 값 없음
+undifined: 자동적으로 값 없음</li></ul><ul id="b7b1e8d8-be56-4cde-86ba-0628bbfe89f6" class="bulleted-list"><li style="list-style-type:disc">object: 객체(함수, 배열, 객체)</li></ul></details></li></ul><ul id="7a9e9284-d91b-4e50-9035-0a78cf70567d" class="toggle"><li><details open=""><summary>연산자</summary><ul id="8d78b56e-a17c-4d52-b73e-b0cbbf318ee6" class="toggle"><li><details open=""><summary>산술 연산자</summary><ul id="1db2fcf6-643f-4a17-8b55-a2c9ac163bfe" class="bulleted-list"><li style="list-style-type:disc">%: 나머지</li></ul><ul id="c72d95a2-52e0-4f4f-ade1-66eb522bb3f7" class="bulleted-list"><li style="list-style-type:disc">**: 제곱</li></ul></details></li></ul><ul id="a1a441fd-8f16-4349-b9bc-635f107d311e" class="toggle"><li><details open=""><summary>증감 연산자</summary><ul id="58291f21-4e40-43a1-aba3-3382f75c728c" class="bulleted-list"><li style="list-style-type:disc">++: 증가</li></ul><ul id="8d52f405-a269-4e0c-aee1-84df7943d208" class="bulleted-list"><li style="list-style-type:disc">- -:  감소</li></ul></details></li></ul><ul id="94e5fde9-8330-470b-90fa-23dca08e2592" class="toggle"><li><details open=""><summary>할당 연산자</summary><ul id="c640b11e-9ec2-4e2a-9b02-04ce384f233e" class="bulleted-list"><li style="list-style-type:disc">=</li></ul></details></li></ul><ul id="79e66a9b-bba7-46c0-b79d-caf231b29b38" class="toggle"><li><details open=""><summary>문자열 연산자</summary><p id="3d068273-74df-4571-9026-a8fa4c046382" class="">+: 공백 임의로 추가 필요</p></details></li></ul><ul id="2a6667a5-9720-476c-8d41-ae3c9d81bca5" class="toggle"><li><details open=""><summary>비교 연산자</summary><ul id="8ff9c4fc-f6c6-4296-9993-47b2ba648940" class="bulleted-list"><li style="list-style-type:disc">== vs ===/ ! =vs ! ===
+==: 대충(data type이 달라도 true )
+===: 엄격</li></ul><ul id="ff1daaf8-c38e-4abf-9e55-3ab965beb51c" class="bulleted-list"><li style="list-style-type:disc">&gt;, &lt; , ≥ , ≤
+문자열이 더 긴게 크고 알파벳 뒤로 갈수록 큼</li></ul></details></li></ul><ul id="36edb184-517f-4014-a825-3ebb747d1a69" class="toggle"><li><details open=""><summary>논리 연산자</summary><ul id="d0f67d63-f997-4720-b34c-8d9cc5dad760" class="bulleted-list"><li style="list-style-type:disc">&amp;&amp;, ||, !
+&amp;&amp;: AND
+||: OR
+!: NOT</li></ul></details></li></ul></details></li></ul><ul id="d04e47b4-0b30-40b9-a1c8-a2bb84dd107e" class="toggle"><li><details open=""><summary>배열</summary><ul id="afa986aa-8cdb-4fdf-981d-07981aa7fbb8" class="toggle"><li><details open=""><summary>선언</summary><ul id="ea70549b-53fc-43a3-ac80-5a289b41cf45" class="bulleted-list"><li style="list-style-type:disc">[ ]</li></ul><ul id="d1893e76-aab7-40c7-83fd-f68b0a3309a7" class="bulleted-list"><li style="list-style-type:disc">new Array()</li></ul><ul id="01939b74-fed1-48d2-9996-332d35881f7e" class="bulleted-list"><li style="list-style-type:disc">선언 후 index를 이용</li></ul></details></li></ul><ul id="a2f26f20-58cc-4877-bb14-5ba36bb15477" class="toggle"><li><details open=""><summary>접근</summary><ul id="7fff1cff-3a6e-4776-932c-ad26293bcdf7" class="bulleted-list"><li style="list-style-type:disc">index: 0~</li></ul></details></li></ul><ul id="f2efb4c7-abb0-4bef-94c0-5f9a43aef2a4" class="toggle"><li><details open=""><summary>추가 및 삭제(재할당은 불가)</summary><ul id="25a396e2-da55-425f-8a90-c5b8a7a131f0" class="bulleted-list"><li style="list-style-type:disc">.push(): 뒤에추가</li></ul><ul id="aed37d6e-7d38-4f2a-ac08-7c5fcee1941d" class="bulleted-list"><li style="list-style-type:disc">.unshift(): 앞에 추가</li></ul><ul id="38bd3cf6-6114-4d8d-ba28-81d23e932b93" class="bulleted-list"><li style="list-style-type:disc">.splice(시작index, 삭제하고픈 원소 개수, 추가 하고 싶은 원소)
+: 원하는 곳에 추가 삭제</li></ul><ul id="53a8c266-07a7-4551-8c3a-62c38ea0584b" class="bulleted-list"><li style="list-style-type:disc">.pop(): 뒤에서 원소 삭제후 반환</li></ul><ul id="c05438c9-939f-4eb8-a325-51989828c158" class="bulleted-list"><li style="list-style-type:disc">.shift(): 앞에서 원소 삭제후 반환</li></ul></details></li></ul></details></li></ul><ul id="d4159b05-072a-41a1-b44b-4173cdfc5543" class="toggle"><li><details open=""><summary>객체</summary><ul id="7eb72258-ef0d-4da9-860a-a633ac67305b" class="toggle"><li><details open=""><summary>선언 </summary><pre id="38f24945-44a9-4432-b7e9-fedbc0c3638d" class="code"><code>objectname{
+	key : value;//함수도 value로 가능
+}</code></pre></details></li></ul><ul id="4eedc78a-d96a-4c21-b38f-0c68beb3b1f6" class="toggle"><li><details open=""><summary>접근 </summary><ul id="6df3c486-5919-417f-ad80-a1ed70bf2258" class="bulleted-list"><li style="list-style-type:disc">변수 호출 </li></ul><pre id="aea8d9ad-45cc-441c-bbba-f8435b2e5eb8" class="code"><code>objectname.key;
+objectname[’key’]; : value에 특수문자가 있을 경우</code></pre><ul id="d775d41d-b4fb-4eda-a8e6-aae4e3cecda0" class="bulleted-list"><li style="list-style-type:disc">함수 호출</li></ul><pre id="ec8a3b54-47ac-416a-9876-cacb8359bb8e" class="code"><code>objectname[’key’]();</code></pre></details></li></ul><ul id="f827f0ee-688d-462a-9a5d-d506fc6d5fd9" class="toggle"><li><details open=""><summary>추가 및 삭제 </summary><p id="208387ce-cd14-4ffc-a94e-555e5e56dbed" class="">추가</p><pre id="d8f6c9b0-3b9d-438b-b5c6-a03576a46840" class="code"><code>objectname[’추가할key’]=추가할 value;</code></pre><p id="63fedffe-f9f8-4e4e-b35d-7225d72055d1" class="">삭제</p><pre id="6423ba00-868a-42d0-bdfe-58d27a053180" class="code"><code>delete objectname.key;</code></pre></details></li></ul><ul id="456cf0d3-0827-48fb-bd19-b6d5f37d3aa8" class="toggle"><li><details open=""><summary>생성자 함수(객체 만들어줌, 대문자시작)</summary><ul id="c176e853-370d-46a0-b416-911f60c80e9e" class="bulleted-list"><li style="list-style-type:disc">this</li></ul><ul id="d4fcdbe0-bee7-4cf3-b32d-59584ecde08b" class="bulleted-list"><li style="list-style-type:disc">new </li></ul><pre id="0a30ec24-8e28-40d8-8b8b-a223f81c17a1" class="code"><code>function name(value1, value2,... ){
+    this.key1=value1;
+    this.key2=value2;
+    ...
+    this[’key5’]=funtion(){
+        console.log(’Hi’+this.key1+’By’);
+
+    }
+
+    this[’key6]=function(){
+
+    console.log(’Hi,${this.key2} Bye’);
+    }
+}
+const Nobject=new Character(&#x27;value1&#x27;,&#x27;value2&#x27;,...);
+console.log(Nobject);
+console.log(Nobject[&#x27;key5&#x27;]());
+//Nobject객체도 추가 가능
+
+const obj=new Object();//빈생성자 생성후 추가도 가능
+
+const Nobj=new Object({
+	key:value,
+	key:function(){
+		...
+	}
+})//배열과 비슷한 방법으로도 생성 가능</code></pre></details></li></ul></details></li></ul><ul id="65f6cb98-bb29-4c9a-b307-d03478217416" class="toggle"><li><details open=""><summary>함수</summary><ul id="36a379a7-95cf-4a2d-81ad-d9966b328dbe" class="bulleted-list"><li style="list-style-type:disc">기본 함수</li></ul><pre id="648e94e9-1e80-46de-803c-4b43bf40cf3c" class="code"><code>function funcname(inputvalue){
+	...
+	return outputvalue;
+}
+const data=funcname(...);
+//매개변수: parameter</code></pre><ul id="1132e37e-df8c-4e6d-8aaf-c4e49febd703" class="bulleted-list"><li style="list-style-type:disc">화살표 함수</li></ul><pre id="6f567417-a4ba-42be-b921-3c52d3365196" class="code"><code>const arrowfunc=(input)=&gt;{ //인자가 한 개일 때는 괄호 생략가능
+	const result=input*10;
+	return result;
+}
+//== const arrowfunc=(input)=&gt;input*10;
+const data=arrowfunc(...);
+console.log(data);</code></pre></details></li></ul><ul id="159df5a8-ccd4-48f5-864d-a151fb1d985d" class="toggle"><li><details open=""><summary>조건문</summary><ul id="04565d86-d9b5-4deb-b25d-47c5ca9d8224" class="bulleted-list"><li style="list-style-type:disc">if </li></ul><ul id="c1e752a8-5d4f-4bf1-b352-8a18fc727885" class="bulleted-list"><li style="list-style-type:disc">else</li></ul><pre id="ff357eaa-ab32-48ad-be30-503f0bae8f2d" class="code"><code>//false: 0, -0, null, false, NaN, undefined,...
+if(조건){
+	...
+}else{
+	...
+}</code></pre><ul id="b828e2e8-0d80-483a-9e28-f812220db2aa" class="bulleted-list"><li style="list-style-type:disc">if, else if, else</li></ul><pre id="69bb2957-150d-45f9-996d-8061726d3915" class="code"><code>if(조건){
+	...
+}else if(조건){
+	...
+}
+	...
+}else{
+	...
+}</code></pre><ul id="2b013c74-281d-42df-ae79-1cdbfb690a4b" class="bulleted-list"><li style="list-style-type:disc">삼항 연산자</li></ul><pre id="a9226282-2d5f-41cc-b176-6b631eb778e8" class="code"><code>//조건 ? 참일때 실행될 코드 : 거짓일때 실행될 코드;
+//변수에 넣는 것도 가능</code></pre><ul id="3adbabcc-ed03-4627-bb68-8d267b86d75b" class="bulleted-list"><li style="list-style-type:disc">switch</li></ul><pre id="c69d7e57-e6b1-417b-b0f2-e35a6be0edd9" class="code"><code>switch(비교대상){
+	case value1://조건문X
+		...
+		break;//break없으면 아래 case도 실행
+	...
+	case value3:
+		...
+		break;
+	default:
+		...
+}</code></pre></details></li></ul><ul id="e9f840b1-17df-4c34-bbcc-c99047dba169" class="toggle"><li><details open=""><summary>반복문</summary><ul id="5eca69b6-3ce1-41c1-bfcc-49b305104653" class="toggle"><li><details open=""><summary>for문</summary><pre id="64dd8d8d-e149-4052-9635-8d055b3c2ed7" class="code"><code>for(let i=..초기값; 조건식; 증감식) {
+	...
+}</code></pre></details></li></ul><ul id="55f227c0-84e6-46f2-adc1-794591b25824" class="toggle"><li><details open=""><summary>while문</summary><ul id="6853bce5-8ac4-4ae4-8d8a-1dc2adddeae6" class="bulleted-list"><li style="list-style-type:disc">continue</li></ul><ul id="b82ddd1a-0c01-47bb-ba94-e6ff44b13f87" class="bulleted-list"><li style="list-style-type:disc">break </li></ul><pre id="84f65740-100e-40bc-8eb8-e71abf852043" class="code"><code>while(조건){
+	...
+}
+//continue: 다음 코드 실행하지 않고 조건문으로 이동
+//break: 반복문 나가기</code></pre><ul id="51f10bfb-2f27-4bdd-be5f-b68d7c3173a5" class="bulleted-list"><li style="list-style-type:disc">do while문</li></ul><pre id="166a8180-f1a8-4f8a-9a8a-aa9b68ad5728" class="code"><code>do{
+	...
+}while(조건문)
+//무조건 1번 실행 후 조건문 확인</code></pre></details></li></ul></details></li></ul></details></li></ul><h1 id="8a4debc9-6000-4f60-af6d-30dfa6cf0a32" class="">실습</h1><h3 id="f741a5b0-5c8d-4a1b-aa92-973d444032fd" class="">JavaScript 실습</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="05808343-d084-4e0b-859b-63692e93662b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">실습 영상을 참고해서 진행해주시고, 진행한 내용은 캡처해서 아래 체크리스트에 첨부해주세요!</div></figure><p id="705ba83a-6f3e-4bd3-9e70-f505bd91f895" class="">
+</p><h3 id="2fb565e6-a624-4cd8-abad-55725669cfee" class="">📝 실습 체크리스트 (<mark class="highlight-red">인증샷 필수!</mark>)</h3><ul id="2ed5e941-5443-47bf-9d0d-41038d00b6d9" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">다음 코드의 출력값을 보여주세요 (<strong>공백 유무 체크</strong>)</span></li></ul><pre id="c82ba850-a09a-4fe0-8692-0a8559e00986" class="code"><code>let data = “happy” + “KWUMC”;    
+console.log(data);</code></pre><ul id="7c73c260-80be-4a3b-9b51-69e0d03de95a" class="toggle"><li><details open=""><summary>실습</summary><figure id="dbd36276-8050-4246-a0db-9ddee0b8402f" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled.png"><img style="width:894px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled.png"/></a></figure><figure id="7e2212a1-3ef1-4819-b73d-c12329f5f2bc" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%201.png"><img style="width:903px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%201.png"/></a></figure></details></li></ul><ul id="4e8b5496-d4af-4712-9118-4074ba9b2ef8" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">다음 코드의 배열 앞에 <code>‘노천극장’</code>, 배열 뒤에 <code>‘도서관&#x27;</code> 을 추가해주세요<strong>(push, unshift 함수 이용)</strong></span><pre id="e9a20e78-8ea7-4c16-8815-4c508e92a159" class="code"><code>kwu_spot = [&#x27;비마관&#x27;, &#x27;참빛관&#x27;, &#x27;한울관&#x27;, &#x27;새빛관&#x27;]</code></pre><ul id="feeab244-685a-48b8-a19d-c4f6b2d14499" class="toggle"><li><details open=""><summary>실습</summary><figure id="2f15bb48-e99f-4ed0-b7f4-cecc42176fd4" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%202.png"><img style="width:888px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%202.png"/></a></figure></details></li></ul></li></ul><ul id="dbdc93dd-9b0f-43f9-a28a-f154afbc13eb" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">다음 코드 배열의 <code>‘참빛관&#x27;, &#x27;한울관&#x27;</code>사이에 <code>‘누리관&#x27;</code>을 삽입하고 <code>‘비마관&#x27;</code> <code>‘새빛관’</code>을 제거해주세요.</span><p id="d67f7e77-7215-450e-8b69-e953fc86270b" class=""><strong>(삽입 시 splice, 제거 시 pop, shift 함수 이용)</strong></p><pre id="ed5ce902-d84a-42ce-823c-d7813aace23e" class="code"><code>kwu_spot = [&#x27;비마관&#x27;, &#x27;참빛관&#x27;, &#x27;한울관&#x27;, &#x27;새빛관&#x27;]</code></pre><ul id="aed420cd-c83d-4378-8960-7ab63abea1c3" class="toggle"><li><details open=""><summary>실습</summary><figure id="4d2e815a-d72c-4879-9b74-6e9bcd83c59f" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%203.png"><img style="width:886px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%203.png"/></a></figure></details></li></ul></li></ul><ul id="9fe474a0-fca0-4084-805e-9cd18ad7ba4a" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">3-3 객체 강의에서 언급한 코드에서 <a href="http://this.name">this.name</a>를 쓰는 이유에 대해 논의해보세요.</span><pre id="6d88d641-16c8-4c59-bad8-90e0fa5ddbb9" class="code"><code>function Character(name, species, job, gender) {
+	this.name = name;//각각의 인스턴스(생성자로 생성된 객체)가리킴
+	this[”say-Hi”] = function(){
+		console.log(’I’m ${this.name}, What’s your name?’)
+	}
+}
+//+를 사용해 문장을 연결하지 않아도 됨</code></pre></li></ul><p id="d25a9673-f1af-477f-bd83-a77b2f81e92b" class="">
+</p><ul id="d268da22-8241-4ef6-add6-39ebd4ff25e1" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">다음 코드와 동일한 출력값을 나오는 <strong>화살표 </strong>함수를 작성해주세요</span><pre id="9907daff-06ad-4b07-9e64-86fa04e66bce" class="code"><code>function multiply10 (num) {
+	const result = num *20;
+	return result;
+}
+const data = multiply10(30);
+console.log(data);</code></pre><ul id="8d80854f-555c-40cb-b1ba-0a236b6f5db3" class="toggle"><li><details open=""><summary>arrowfunction</summary><pre id="c0ba6495-ed22-4b2a-9458-518432f16744" class="code"><code>const multiply10=(num)=&gt;num*20;
+const data=multiply10(30);
+console.log(data);</code></pre></details></li></ul></li></ul><ul id="6b057bb8-199e-4ced-9646-49174ce25c52" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">제어문을 이용하여 11번, 15번 삼각형을 출력하는 코드를 작성하세요.</span><p id="01a5e881-066e-43a1-82ca-ca7a37b139c6" class=""> 출처 : </p><figure id="68562f39-9d94-41b2-9c37-d3ddf271869f"><a href="https://velog.io/@kim-jaemin420/%EC%A0%9C%EC%96%B4%EB%AC%B8%EC%A1%B0%EA%B1%B4%EB%AC%B8-%EB%B0%98%EB%B3%B5%EB%AC%B8-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">제어문(조건문, 반복문) 연습문제</div><div class="bookmark-description">1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라 2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오. 3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오. 4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오. 5.</div></div><div class="bookmark-href"><img src="https://static.velog.io/favicon.ico" class="icon bookmark-icon"/>https://velog.io/@kim-jaemin420/%EC%A0%9C%EC%96%B4%EB%AC%B8%EC%A1%B0%EA%B1%B4%EB%AC%B8-%EB%B0%98%EB%B3%B5%EB%AC%B8-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C</div></div><img src="https://media.vlpt.us/images/kim-jaemin420/post/c77df804-c9ac-4226-bbc5-56c63151f920/js%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.png?w=768" class="bookmark-image"/></a></figure><ul id="818e54fb-487c-4a11-97a0-d294a00630a1" class="toggle"><li><details open=""><summary>11번</summary><figure id="f03d1dc4-5286-4662-a9d1-34ba7aa9b7c1" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%204.png"><img style="width:192px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%204.png"/></a></figure><ul id="f2dfb1c7-7403-4328-8fcb-0324d68604ed" class="toggle"><li><details open=""><summary>코드</summary><figure id="5349e946-b87a-4c22-9c51-cdd99a5c473c" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%205.png"><img style="width:897px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%205.png"/></a></figure></details></li></ul></details></li></ul><ul id="5c28db6f-6351-40b7-9e2c-bcd35f71fe2b" class="toggle"><li><details open=""><summary>15번</summary><figure id="6cbd5d45-7904-41f5-a69e-019b621d5d9e" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%206.png"><img style="width:486px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%206.png"/></a></figure><ul id="e2595d62-c02c-4960-9e85-2d4ebf487398" class="toggle"><li><details open=""><summary>코드</summary><figure id="3aaaeabb-6c8e-4dbd-bb05-532152604f49" class="image"><a href="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%207.png"><img style="width:895px" src="Web%203%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%204315faae2e4d435490d0c016d8fa6b21/Untitled%207.png"/></a></figure></details></li></ul><p id="9f6ede55-bd56-4096-af47-b12f9570834b" class="">document.write</p></details></li></ul></li></ul><h1 id="0f801472-3bf6-4e97-8d75-5ee1f8e5b990" class="">3주차 수업 후기 📢</h1><ul id="31107985-5cf5-46cb-ad64-0e62f5561d92" class="bulleted-list"><li style="list-style-type:disc">3주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="8f1396ce-9265-4d1b-8f1d-39963f7a8404" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="eb2a8f32-6f69-4033-b434-ee5d2005b1a2" class=""> !주의사항</h1><p id="a3ded70b-b1ee-4e0f-a911-105195162a6e" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="c74450f4-d121-4578-ab4e-a2ab06273de8" class="">논의해보면 좋은 것들 🔥</h1><ul id="ddb81ba9-b079-4926-ac2c-9960b03c7b9e" class="bulleted-list"><li style="list-style-type:disc">JavaScript를 이용한 서비스들에 대해 알아보세요! (Web, App, Blockchain etc)</li></ul><ul id="243e3dfc-8809-4f5d-85d3-fe15f3a17e09" class="bulleted-list"><li style="list-style-type:disc">JavaScript의 장점과 단점<ul id="7db3f41f-2585-4c7a-aa28-531137361769" class="bulleted-list"><li style="list-style-type:circle">더 알고 싶다면 TypeScript의 등장에 대해서 얘기 나눠보세요!</li></ul></li></ul><figure id="6c457c4b-2aa1-4e3d-b830-619d246cebd3"><a href="https://www.youtube.com/watch?v=KF6t61yuPCY" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">자바스크립트 기초 강좌 : 100분 완성</div><div class="bookmark-description">안녕하세요. 코딩앙마 입니다 :)자바스크립트 기초 강좌를 하나의 영상으로 만들었습니다. 프로그래밍 경력이 없어도 됩니다. 완전 초보라도 괜찮아요. 딱 100분만 투자하고 자바스크립트가 어떤건지 감을 잡아 봅시다!24:55오류가 있어 바로 잡습니다.Number(0) // falseN...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/01f7cad5/img/favicon.ico" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=KF6t61yuPCY</div></div><img src="https://i.ytimg.com/vi/KF6t61yuPCY/hqdefault.jpg" class="bookmark-image"/></a></figure><figure id="0ab664ab-4956-48ac-81a9-58fce82025d5"><a href="https://www.youtube.com/watch?v=4_WLS9Lj6n4" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">자바스크립트 중급 강좌 : 140분 완성</div><div class="bookmark-description">안녕하세요. 코딩앙마 입니다 :)자바스크립트 중급 강좌도 하나의 영상으로 만들어 달라는 요청이 있어서 제작하게 되었습니다.크롬에서 Codepen 이나 JSFiddle 같은 웹에디터를 사용했을때 alert/prompt/confirm 같은 기능이 제대로 동작하지 않습니다. 2021.0...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/01f7cad5/img/favicon.ico" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=4_WLS9Lj6n4</div></div><img src="https://i.ytimg.com/vi/4_WLS9Lj6n4/hqdefault.jpg" class="bookmark-image"/></a></figure></div></article></body></html>

@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 7주차 워크북</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7dad14c6-14e8-4870-b3e6-3ffe01fafabb" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">7️⃣</span></div><h1 class="page-title">Web 7주차 워크북</h1></header><div class="page-body"><h1 id="223dd104-65ff-4718-8a65-5aed26cc6ffb" class="">핵심 키워드 🎯 </h1><ul id="98bca7ec-01f3-4c8a-a0e0-87bcdc45b07d" class="bulleted-list"><li style="list-style-type:disc">동기<ul id="c4897053-1b8d-4237-9b6b-968a89f716a4" class="bulleted-list"><li style="list-style-type:circle">synchronous</li></ul><ul id="9abc70b6-81e1-4065-93a7-d503c0e598c9" class="bulleted-list"><li style="list-style-type:circle">순서대로 일을 처리하는 방식</li></ul></li></ul><ul id="dc1d710f-6879-4cc3-af54-3c5dd5e7ba6c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red_background">비동기</mark><ul id="8c919897-938a-4cc1-97cb-8867289d69c2" class="bulleted-list"><li style="list-style-type:circle">asynchronous </li></ul><ul id="8d896f49-96d4-47b6-8c22-40d8f3470a1e" class="bulleted-list"><li style="list-style-type:circle">순서대로 일을 처리하지 않고 빨리 처리할 수 있는 것들을 먼저 처리하는 방식</li></ul><ul id="8ceb26a0-779f-4ef0-b56f-dd87f1a84016" class="bulleted-list"><li style="list-style-type:circle">callback, Promise</li></ul><ul id="5d6e4eb1-68d5-467d-9899-337a01ae200a" class="bulleted-list"><li style="list-style-type:circle">동기→비동기</li></ul></li></ul><h3 id="17b5c2cd-3a61-4585-a8c0-b15f8b8c3b97" class="">callback</h3><ul id="376b0b15-ebb5-4aba-88ff-ca995653ab8c" class="bulleted-list"><li style="list-style-type:disc">어떤 이벤트가 발생했거나 특정 시점에 도달했을 때 시스템에서 호출하는 함수</li></ul><ul id="c4bd7a50-41da-46f8-89b3-f4e45104a80f" class="bulleted-list"><li style="list-style-type:disc">함수 안에서 실행하는 또 다른 함수</li></ul><ul id="ceffe424-d437-409d-9287-a0b904abff28" class="bulleted-list"><li style="list-style-type:disc">함수를 만들 때 parameter 을 함수로 받아서 사용할 수 있는데, 이때 인자로 사용되는 함수</li></ul><ul id="e8cf4f49-e603-4a99-b068-c87eca667b7c" class="bulleted-list"><li style="list-style-type:disc">callback Hell<ul id="f491d77b-94e7-4024-9b2e-92aa6c975892" class="bulleted-list"><li style="list-style-type:circle">콜백안에 콜백을 물어서 오른쪽 아래로 코드가 내려가는 형태</li></ul><ul id="d1c42506-741e-471b-b221-4fb8856c848b" class="bulleted-list"><li style="list-style-type:circle">코드의 흐름을 추적하기도 쉽지 않고, 만약 수정할 일이 생기면 콜백의 구조 특성상 수정이 어려움</li></ul></li></ul><h3 id="73897b1e-8d8a-4e01-97f9-8ec97e216edc" class="">Promise</h3><ul id="e8ba20cb-fe18-424e-94f5-775b18f7ab05" class="bulleted-list"><li style="list-style-type:disc">서버에서 받아온 데이터를 화면에 표시할 때 사용</li></ul><ul id="ed4bee5d-76ad-4207-b5f1-731046b550d8" class="bulleted-list"><li style="list-style-type:disc">콜백 함수 인자로 <code>resolve</code> <code>reject</code> 사용 가능</li></ul><ul id="afaf814c-a756-4c4a-9b0c-111e59367f9f" class="bulleted-list"><li style="list-style-type:disc">2줄 이상은 return 사용</li></ul><ul id="c9bbd6d2-814f-446e-b604-11544027c1d2" class="bulleted-list"><li style="list-style-type:disc"><code>new Promise()</code>로 프로미스를 생성하고 종료될 때까지 3가지 상태<ul id="1729545f-dc9e-4044-8600-82fba000c4ed" class="bulleted-list"><li style="list-style-type:circle">Pending(대기)</li></ul><ul id="545f4412-64fc-4926-ad30-2f2687818fc9" class="bulleted-list"><li style="list-style-type:circle">Fullfiled(이행)</li></ul><pre id="bb13a59f-49f4-4ff9-839d-3e9ee9f9be08" class="code"><code>function getData() {
+  return new Promise(function(resolve, reject) {
+    var data = 100;
+    resolve(data);
+  });
+}
+
+// resolve()의 결과 값 data를 resolvedData로 받음
+//then()을 이용하여 처리 결과 값을 받음
+getData().then(function(resolvedData) {
+  console.log(resolvedData); // 100
+});</code></pre><ul id="1eb6360d-5748-4e13-a916-aa7edfe20da2" class="bulleted-list"><li style="list-style-type:circle">Rejected(실패)<ul id="700c0eb5-9354-4a8f-a1c5-1be39c4e5cd9" class="bulleted-list"><li style="list-style-type:square"><code>reject()</code>를 호출하면 실패(Rejected) 상태</li></ul><ul id="1d898613-7a7e-4590-8115-20b664964772" class="bulleted-list"><li style="list-style-type:square">실패 처리의 결과 값을 <code>catch()</code>로 받을 수 있음</li></ul><pre id="144a59f6-c32a-4c4a-910c-5c240d12c2aa" class="code"><code>function getData() {
+  return new Promise(function(resolve, reject) {
+    reject(new Error(&quot;Request is failed&quot;));
+  });
+}
+
+getData().then().catch(function(err) {
+  console.log(err);
+});</code></pre><ol type="1" id="00333b48-6ab9-4889-b56c-c0d0bfef9c65" class="numbered-list" start="1"><li><code><mark class="highlight-gray_background">then()</mark></code> 의 두 번째 인자로 에러처리</li></ol><ol type="1" id="bdeb734e-59c7-4835-a544-bc88af24730f" class="numbered-list" start="2"><li><code>catch()</code></li></ol><pre id="384e7b8d-2aa3-4698-aff4-b70a8c012a5e" class="code"><code>//1.
+getData().then(
+  handleSuccess,
+  handleError
+);
+
+//2.
+getData().then().catch();//더 선호</code></pre></li></ul></li></ul><ul id="8ecc9065-9772-41ed-9613-5fc4f6ca20d7" class="bulleted-list"><li style="list-style-type:disc"><code>then()</code>메서드를 호출하고 나면 새로운 프로미스 객체가 반환 되므로 여러개의 promise를 연결하여 사용가능</li></ul><figure id="5d3c66a4-4bdb-429a-9aee-fa5dfdcec2ef" class="image"><a href="Web%207%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%207dad14c614e84870b3e63ffe01fafabb/Untitled.png"><img style="width:860px" src="Web%207%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%207dad14c614e84870b3e63ffe01fafabb/Untitled.png"/></a></figure><h3 id="b7486af8-bf4e-40a0-b7d2-a550e9562d0a" class="">async, await</h3><ul id="f963505d-826c-4d6b-8fad-a75deef50525" class="bulleted-list"><li style="list-style-type:disc">직관적</li></ul><ul id="c46575c0-c729-4059-bec9-3d142fcb1210" class="bulleted-list"><li style="list-style-type:disc">비동기 처리 메서드가 꼭 프로미스 객체를 반환해야 <code>await</code>가 의도한 대로 동작</li></ul><pre id="050d349d-1504-4e03-aae0-b76b850d4fb0" class="code"><code>async function 함수명() {
+  await 비동기_처리_메서드_명();
+}</code></pre><h1 id="748de2a5-3ebf-420f-8b4b-b853d0279faa" class="">7주차 수업 후기 📢</h1><ul id="e53060f7-33b1-4c37-b701-663a125da2a0" class="bulleted-list"><li style="list-style-type:disc">7주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="a58c5886-5f09-43ab-ab52-6ebe5b16dece" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="72333198-0c8c-4da4-b8ff-9d430326075d" class="">실습 체크리스트✅</h1><ul id="0cd81d4d-3e93-4663-9ea9-c795dbc8e347" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">setTimeout</span><pre id="edff56d4-e96b-4fcb-8c3e-270edacbe8df" class="code code-wrap"><code>setTimeout(function(){console.log(&quot;hello&quot;)},0);
+console.log(&quot;nice meet you, too&quot;)
+</code></pre><p id="1dc252d8-7d4e-4886-9790-b51262c684f6" class="">위의 코드를 실행시킨다면 어떤 코드가 먼저 실행될까? 자신의 생각을 먼저 적고, 실제로 코드를 작동시킨 후 결과에 대해 찾아보세요</p><p id="7221c56b-6cae-410d-8c1a-87231d49dd47" class="">→ 동기가 먼저 실행되어 nice meet you가 실행 후 바동기가 실행되어 hello가 출력될 것이라 생각한다.</p><figure id="df326cbe-0354-46b8-97ec-c3fda3a3d620" class="image"><a href="Web%207%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%207dad14c614e84870b3e63ffe01fafabb/Untitled%201.png"><img style="width:369px" src="Web%207%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%207dad14c614e84870b3e63ffe01fafabb/Untitled%201.png"/></a></figure></li></ul><ul id="0169d8b9-353f-4dc0-80cb-7033a533abf1" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Callback 이란:어떤 이벤트가 발생했거나 특정 시점에 도달했을 때 시스템에서 호출하는 함수</span></li></ul><ul id="a46e21e0-3178-451b-885b-4f26f83c7308" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Callback 지옥의 예시를 생각해보고 여기에 적어주세요:</span></li></ul><pre id="1f7e33c6-0a52-4fbd-a5fd-38f84b03ae98" class="code"><code>function add(x, callback) {
+	let sum = x + x;
+	console.log(sum);
+	callback(sum);
+}
+add(2, function(result) {
+	add(result, function(result) {
+		add(result, function(result) {
+			...
+		})
+	})
+})
+
+</code></pre><ul id="1904ae17-48e2-4a31-a8ef-ea9d556ba7f1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">서버와 <code>동기적</code>으로 통신한다면 어떤 문제가 발생할지 의견을 적어주세요: </span></li></ul><p id="293931b3-4e1d-4f78-a79f-de9f2c40cc0a" class="">로딩바 </p><h1 id="d7d964b9-ab27-4edf-a0b1-da27ec67a9dd" class=""> !주의사항</h1><p id="879b1d1e-dbc5-4e1e-b7d3-1440b46a7b74" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="06e3db73-1aba-402c-9ba4-d9fb0544a84c" class="">논의해보면 좋은 것들 🔥</h1><ul id="c12c3e9f-044c-4713-aca0-f22f39f24f49" class="bulleted-list"><li style="list-style-type:disc">왜 Callback 함수를 안쓰고 promise와 async, await를 사용하는지 토론해보기→ 콜백 지옥에 빠지지 않기 위해</li></ul><ul id="38a8f275-0e21-4260-86ee-d0c0d0d3523a" class="bulleted-list"><li style="list-style-type:disc">Promise와 async, await를 어느 기능에서 활용하면 좋을지 토의해보기 →로그인, 사용자의 데이터를 받아야 할 때</li></ul><p id="23c08b41-37af-4b37-abf2-1540c61069f2" class="">
+</p></div></article></body></html>

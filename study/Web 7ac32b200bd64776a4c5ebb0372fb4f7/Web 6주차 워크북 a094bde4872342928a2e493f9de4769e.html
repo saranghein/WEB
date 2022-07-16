@@ -1,0 +1,723 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 6주차 워크북</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a094bde4-8723-4292-8a2e-493f9de4769e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">6️⃣</span></div><h1 class="page-title">Web 6주차 워크북</h1></header><div class="page-body"><h1 id="c8868f19-d9eb-408b-877c-2a51da649fb9" class="">핵심 키워드 🎯 </h1><h3 id="29bce2d3-0607-4f81-a745-44ac19c9a20c" class="">Web Storage</h3><ul id="835eb001-c13e-41f5-b527-312afbe90840" class="bulleted-list"><li style="list-style-type:disc">정보들을 모두 웹 서버에 저장하는 것은 저장 공간의 크기, 네트워크 트레픽 증가 등 문제 발생해 사용자의 로컬 컴퓨터에 저장할 수 있는 web storage기능 도입</li></ul><ul id="2a53895a-d014-4415-bbbf-e82b1c5130eb" class="bulleted-list"><li style="list-style-type:disc">DOM스토리지라고도 불리고 2가지 종류<ul id="0e69f4c4-cf19-413d-bf74-4d0930af6a4f" class="bulleted-list"><li style="list-style-type:circle">Session Storage<ul id="16538022-1ef5-47e5-aacd-adcbd4684331" class="bulleted-list"><li style="list-style-type:square">브라우저 윈도우마다 마련된 독립적인 저장소</li></ul><ul id="f910fc5e-04f3-4514-939c-a0e81a0be091" class="bulleted-list"><li style="list-style-type:square">윈도우가 사라지면 함께 사라지는 <mark class="highlight-red_background">일시적</mark> 저장소</li></ul></li></ul><ul id="c393cff7-132a-48f4-a29c-53c9562393ef" class="bulleted-list"><li style="list-style-type:circle">Local Strorage<ul id="24c4c44c-0c54-4d06-9597-41b342ebacd9" class="bulleted-list"><li style="list-style-type:square">모든 브라우저 윈도우들이 공유하며 윈도우나 브라우저가 닫혀도 사라지지  않는 <mark class="highlight-red_background">영구적</mark> 저장소</li></ul></li></ul></li></ul><ul id="00d1c76f-3e9a-402c-8fb5-24920e0be59b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red_background">문자열</mark>만 저장<ul id="5a0bc778-177f-4dd3-b565-721327946406" class="bulleted-list"><li style="list-style-type:circle">숫자도 문자열로 바꾸어 저장(12.3→ “12.3”)</li></ul></li></ul><ul id="07f62bfe-3fbe-4d8b-bae4-b78ca59c375b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red_background">(key,value)</mark>로 구성</li></ul><ul id="bf6b27a8-9f42-4eca-80fd-66d707742c53" class="bulleted-list"><li style="list-style-type:disc">동일한 key를 가진 아이템은 중복하여 존재X</li></ul><ul id="27a85462-0d1f-4297-90f8-b984b1e0f91d" class="bulleted-list"><li style="list-style-type:disc">조작은 javascript코드로만 가능</li></ul><hr id="ade28dad-7a5d-45f7-b254-a6580c108de5"/><ul id="228ffbec-ee67-4864-ad6f-6df58c1b7e93" class="bulleted-list"><li style="list-style-type:disc">Session Storage<ul id="95f80af7-76d9-40f9-af83-060263245ce3" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red_background">세션이 생길 때 생성, 세션 종료시 소멸</mark></li></ul><ul id="455125ba-a510-4983-9a17-45a84f0f62be" class="bulleted-list"><li style="list-style-type:circle">Session: 브라우저 윈도우와 웹 사이트가 연결된 상황을 지칭</li></ul><ul id="d6fc71bf-cc60-4a48-8281-989d4b898caf" class="bulleted-list"><li style="list-style-type:circle">2개의 윈도우가 동일한 웹 사이트에 접속하는 경우 <ul id="b9d2ae0b-e00b-4ad6-8262-79586f0034f4" class="bulleted-list"><li style="list-style-type:square">윈도우 마다 session storage가 별도 생성→ 윈도우 1에 로드된 웹페이지( session storage1)는  session storage2에 기록한 값 읽거나 쓸 수 없음</li></ul></li></ul><ul id="ddef9c5d-c1a2-4ff4-a718-38e1a94e219d" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-red_background">한 세션 (한 윈도우)</mark>에 연결된 웹 사이트의 웹페이지들이 주고 받은 임시 데이터를 일시적으로 저장하기 위해 사용</li></ul></li></ul><hr id="b448f9c1-a35f-46c9-9984-9e11e6ea966d"/><ul id="b9b66cd7-2fce-416c-8cb7-1f4978735191" class="bulleted-list"><li style="list-style-type:disc">Local Storage<ul id="adc1a7a8-4a44-47d3-84dc-5a7c3e905571" class="bulleted-list"><li style="list-style-type:circle">윈도우에 상관없이 <mark class="highlight-red_background">웹 서버(웹 사이트)당 하나</mark>씩 생성</li></ul><ul id="3161bd1e-dfb3-41fc-b789-e66bf20183d5" class="bulleted-list"><li style="list-style-type:circle">윈도우1 구글→구글local storage생성→ 윈도우2구글→생성된 localstorage공유</li></ul><ul id="b795cddf-9175-4a37-b878-56496b1c27e9" class="bulleted-list"><li style="list-style-type:circle">윈도우 닫힘, 브라우저 종료, 컴퓨터가 꺼져도 없어지지 않음</li></ul><ul id="86329ab3-d465-4a9c-835e-0137f11bfe17" class="bulleted-list"><li style="list-style-type:circle">오프라인 상태에서 활용가능</li></ul></li></ul><hr id="22d5c33c-d238-4bfd-932a-2bfbcc845dbc"/><ul id="ef6a87f3-b80a-4de4-aa42-6730aefaf846" class="bulleted-list"><li style="list-style-type:disc">Storage인터페이스<table id="3dd70052-ed91-493b-a03b-8c76064d975d" class="simple-table"><tbody><tr id="4e41468b-f137-4834-8e2d-ef827af31ed3"><td id="}Sid" class="block-color-gray_background" style="width:122.23863983154297px">프로퍼티</td><td id="H\HT" class="block-color-gray_background" style="width:340.92047119140625px">설명</td></tr><tr id="952e19dd-e4db-49a3-8460-acd34ec6616c"><td id="}Sid" class="" style="width:122.23863983154297px">length</td><td id="H\HT" class="" style="width:340.92047119140625px">스토리지에 저장된 아이템 개수</td></tr><tr id="42d4f988-41d4-4868-a6a9-0f91e2465396"><td id="}Sid" class="" style="width:122.23863983154297px">[]</td><td id="H\HT" class="" style="width:340.92047119140625px">[’key’]로 아이템의 값을 읽거나 저장하는 연산자</td></tr><tr id="45c0acd5-8af4-4ad8-9487-3a5b13421118"><td id="}Sid" class="block-color-gray_background" style="width:122.23863983154297px">메소드</td><td id="H\HT" class="block-color-gray_background" style="width:340.92047119140625px">설명</td></tr><tr id="af055840-d14f-4830-a235-506548cd9b89"><td id="}Sid" class="" style="width:122.23863983154297px">key(<em>index</em>)</td><td id="H\HT" class="" style="width:340.92047119140625px">index위치에 저장된 아이템의 key문자열 반환</td></tr><tr id="26567dc4-4da8-4040-81de-dc2d145d0593"><td id="}Sid" class="" style="width:122.23863983154297px">setItem(<em>key</em>, <em>val</em>)</td><td id="H\HT" class="" style="width:340.92047119140625px">(key,val)아이템을 스토리지에 저장</td></tr><tr id="e2d8d269-cf8c-4bf4-9ff1-6e74e5ca07bf"><td id="}Sid" class="" style="width:122.23863983154297px">getItem(<em>key</em>)</td><td id="H\HT" class="" style="width:340.92047119140625px">key의 아이템을 찾아val문자열 반환 없으면 null 반환</td></tr><tr id="e5a6d7fe-56bc-42a4-a16d-28f1e8cdeb56"><td id="}Sid" class="" style="width:122.23863983154297px">removeItem(<em>key</em>)</td><td id="H\HT" class="" style="width:340.92047119140625px">문자열 key의 아이템 삭제</td></tr><tr id="da1f3c82-2263-400a-927e-74619fe39cd7"><td id="}Sid" class="" style="width:122.23863983154297px">clear()</td><td id="H\HT" class="" style="width:340.92047119140625px">스토리지의 모든 아이템 삭제</td></tr></tbody></table></li></ul><ul id="e3434981-25f0-4394-9e79-837b037de77e" class="bulleted-list"><li style="list-style-type:disc">아이템 저장 및 변경<p id="dcbee22d-eebb-4102-a7b3-06a85815b67a" class="block-color-red_background">setItem(”<em>key</em>”)</p><p id="28d5a0c6-05bb-4261-863b-6989805b270b" class="block-color-red_background">[ ]연산자</p><pre id="b4fc63c5-e34c-4888-9711-7e6f9ec4c8e3" class="code"><code>sessionStorage.setItem(&quot;score&quot;,&quot;80&quot;);
+sessionStorage[&quot;score&quot;]=&quot;80&quot;;</code></pre></li></ul><ul id="3ed8b448-4e01-416c-a00b-9b11a04e5f87" class="bulleted-list"><li style="list-style-type:disc">아이템 읽기<p id="65a028eb-1e92-4869-ad52-faaac18ec447" class="block-color-red_background">getItem(”<em>key</em>”)</p><p id="0b7046bf-d85d-445d-b057-f1c4b3e9cd3d" class="block-color-red_background">[ ]연산자</p><pre id="5276291d-80ad-4b1e-904f-19c457ea96fa" class="code"><code>let myScore=localStorage.getItem(&quot;score&quot;);
+let myScore=localStorage[&quot;score&quot;];</code></pre></li></ul><ul id="fc32aef3-01dc-4045-92ee-b608e046777f" class="bulleted-list"><li style="list-style-type:disc">key알아내기<p id="03a92a26-d1fd-4542-b620-2d254fc3686b" class="block-color-red_background">key(<em>index</em>)</p><ul id="4e159cb5-0398-4770-a432-21fdfedce565" class="bulleted-list"><li style="list-style-type:circle">index는 저장된 순서X</li></ul><pre id="1a9341a8-7b8f-47d4-9c97-a213bfea38a8" class="code"><code>let key=sessionStorage.key(0);
+let val=sessionStorage.getItem(key);</code></pre></li></ul><ul id="ffb61f0f-9605-4f0e-b0e6-5ad480ed2231" class="bulleted-list"><li style="list-style-type:disc">아이템 삭제<p id="c4c60e35-4052-470c-b2e2-60fb8f5a386e" class="block-color-red_background">removeItem(”<em>key</em>”)</p><pre id="b728abb6-12b8-4ca4-86d5-69e79665ff1b" class="code"><code>sessionStorage.removeItem(&quot;score&quot;);</code></pre></li></ul><ul id="78dada85-91e1-4ce8-bf3a-831bf49797d0" class="bulleted-list"><li style="list-style-type:disc">모든 아이템 삭제<p id="9ea21bc4-da10-4244-be5e-662e1bde628d" class="block-color-red_background">clear()</p><pre id="9de3e999-86ba-4181-ad5c-b7fc293f743e" class="code"><code>localStorage.clear();</code></pre></li></ul><hr id="68d2193e-77c6-43c7-baac-86654b483520"/><h3 id="4de9d799-a504-49eb-af63-ef0e8a4c00cb" class=""><mark class="highlight-red"><strong>local Storage</strong></mark></h3><ul id="e11742e0-ff18-45e8-a833-a2725dc4b8a7" class="bulleted-list"><li style="list-style-type:disc">setItem<p id="d5420038-bad5-46c5-9d2f-a8242a8a9bcb" class="block-color-red_background">localStorage.setItem(’<em>key’</em>, ‘<em>value’</em>);</p><ul id="5693f9bb-8518-4168-b6a2-a6ffce28132f" class="bulleted-list"><li style="list-style-type:circle">localstorage 정보를 저장할 때 사용하는 메소드</li></ul><pre id="f44e7b7a-0b30-4774-85d7-f28044ec9bd5" class="code"><code>localStorage.setItem(&quot;name&quot;, &quot;dwell&quot;);
+localStorage.setItem(&quot;age&quot;, 100);</code></pre></li></ul><ul id="b7bf21e9-f9a6-4486-b1b0-ac423105f3da" class="bulleted-list"><li style="list-style-type:disc">getItem<p id="9219da08-5158-49bf-9ee9-bed2b8f4fb98" class="block-color-red_background">localStorage.getItem(’<em>key</em>’);</p><ul id="dc7679b8-673e-4f63-a10d-5845f0c115dd" class="bulleted-list"><li style="list-style-type:circle">localStorage에서 정보를 가져올때 사용하는 메소드</li></ul><pre id="068f6674-6ea8-4f3d-b48f-4641489f09f1" class="code"><code>const result = localStorage.getItem(&quot;age&quot;);
+console.log(result);
+console.log(typeof result);</code></pre><hr id="6266a676-f132-4673-9ac7-cd6dda958bf4"/></li></ul><pre id="03263cf1-8732-4494-89a4-e976a0f2bc14" class="code"><code>const travel = {
+  destinations: [&quot;paris&quot;, &quot;sydney&quot;, &quot;taipei&quot;],
+  days: 100,
+  mate: undefined,
+  isAvailable: true,
+};</code></pre><ul id="bf6e0e39-2a11-4cc9-97b8-32ab8377e2a5" class="bulleted-list"><li style="list-style-type:disc">객체는 문자 형태로 저장X, 배열은 배열로 접근불가<p id="d916897b-4d2e-4fb3-8165-5386950ab6a0" class="">→ JSON.stringify, JSON.parse 이용</p><pre id="c27f858c-1150-4565-9565-8f6584393837" class="code"><code>const data=localStorage.setItem(&quot;travel&quot;, travel);
+console.log(data);
+console.log(data.destinations);</code></pre></li></ul><ul id="0bd8d437-c3ea-48b9-97f8-e7cf5dc807bd" class="bulleted-list"><li style="list-style-type:disc">JSON.stringify, JSON.parse<p id="cfbfdaa1-c0f4-4d4a-ae9c-f99abe0104ca" class="block-color-red_background">JSON.stringify(’<em>value</em>’)</p><p id="67e404d8-6402-4e67-8150-efe23a9044b0" class="block-color-red_background">JSON.parse(localStorage.getItem(’<em>key</em>’));</p><pre id="6a524324-b51e-45c5-9045-b9608be4e2a3" class="code"><code>localStorage.setItem(&quot;travel&quot;, JSON.stringify(travel));
+
+const data = JSON.parse(localStorage.getItem(&quot;travel&quot;));
+console.log(data.destinations);//객체에 문자로 접근 가능</code></pre><hr id="02e09006-cd39-462f-9b2a-1619882b91a8"/></li></ul><ul id="7ec53ac9-eccc-4e02-94ab-283a615ff162" class="bulleted-list"><li style="list-style-type:disc">removeItem, clear<ul id="0fc7bb3a-ee21-454c-981a-d0dada2cf105" class="bulleted-list"><li style="list-style-type:circle">삭제</li></ul><p id="3a0d216e-9016-4a9e-8937-926d42543dbe" class="block-color-red_background">localStorage.removeItem(&quot;<em>name</em>&quot;);</p><p id="a2d10f54-fff5-412d-b648-bbfdfa64c8d9" class="block-color-red_background">localStorage.clear();</p><pre id="06c79bfa-8bb2-41a1-8232-76d79c691282" class="code"><code>localStorage.removeItem(&quot;name&quot;);
+localStorage.clear();//전체 삭제</code></pre></li></ul><h1 id="c1228df1-73ff-4446-af0f-129993931087" class="">6주차 수업 후기 📢</h1><ul id="6fc574b1-2f12-4e25-a047-f4bd832ffda9" class="bulleted-list"><li style="list-style-type:disc">6주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="1a68de25-68ea-497f-9e74-7f8eff8b1474" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="ca678c28-895d-4037-a578-73a32758a16b" class="">실습 체크리스트✅</h1><ul id="91859564-ff52-4ecc-82dc-25aba94be814" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">JSON:</span><p id="0c5be4ef-d336-4da2-bdd7-dec6994500ff" class="">키-값 으로 이루어진 데이터 오브젝트를 전달하기 위해 인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷</p></li></ul><ul id="4f78169d-941f-4102-be22-2e0e1767653d" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">localStorage에 getItem으로 문자열, 리스트, JSON을 넣고 다시 getItem으로 돌려받기.</span><pre id="c22f02f6-73be-4394-a251-4d31be3794d8" class="code"><code>const travel = {
+    destinations: [&quot;paris&quot;, &quot;sydney&quot;, &quot;taipei&quot;],
+    days: 100,
+    mate: undefined,
+    isAvailable: true,
+};
+const list=[&quot;hi&quot;,&quot;hello&quot;];
+
+localStorage.setItem(&quot;storage1&quot;, &quot;저장소&quot;);
+localStorage.setItem(&quot;storage2&quot;, list);
+localStorage.setItem(&quot;storage3&quot;, travel);
+const data1=localStorage.getItem(&quot;storage1&quot;);
+const data2=localStorage.getItem(&quot;storage2&quot;);
+const data3=localStorage.getItem(&quot;storage3&quot;);
+
+console.log(data1, typeof data1);
+console.log(data2, typeof data2);
+console.log(data3, typeof data3);</code></pre><figure id="c3895965-ff83-4013-8d6c-2e63da642ff7" class="image"><a href="Web%206%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20a094bde4872342928a2e493f9de4769e/Untitled.png"><img style="width:302px" src="Web%206%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20a094bde4872342928a2e493f9de4769e/Untitled.png"/></a></figure></li></ul><ul id="bc41902d-1a9a-44e6-acd6-ec0424fbe604" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">위의 실습에서 stringify, parse 를 이용해보고 typeof 로 원래의 타입으로 변환되었는지 확인하기.</span><pre id="64c2419e-5559-4621-ab52-b5a084615115" class="code"><code>const travel = {
+    destinations: [&quot;paris&quot;, &quot;sydney&quot;, &quot;taipei&quot;],
+    days: 100,
+    mate: undefined,
+    isAvailable: true,
+};
+const list=[&quot;hi&quot;,&quot;hello&quot;];
+
+localStorage.setItem(&quot;storage1&quot;,JSON.stringify(&quot;저장소&quot;));
+localStorage.setItem(&quot;storage2&quot;, JSON.stringify(list));
+localStorage.setItem(&quot;storage3&quot;, JSON.stringify(travel));
+const data1=JSON.parse(localStorage.getItem(&quot;storage1&quot;));
+const data2=JSON.parse(localStorage.getItem(&quot;storage2&quot;));
+const data3=JSON.parse(localStorage.getItem(&quot;storage3&quot;));
+
+console.log(data1, typeof data1);
+console.log(data2, typeof data2);
+console.log(data3, typeof data3);</code></pre><figure id="efcc31ed-74a8-4ca9-9b3e-28e8a27c6f3e" class="image"><a href="Web%206%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20a094bde4872342928a2e493f9de4769e/Untitled%201.png"><img style="width:582px" src="Web%206%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%20a094bde4872342928a2e493f9de4769e/Untitled%201.png"/></a></figure></li></ul><ul id="83a8c27e-30b9-4d35-83e4-b46149cfaf34" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Local Storage와 Session Storage의 차이:</span><p id="797c2f02-49f3-4685-8d54-d82bfd1fcf62" class="">Local Storage: 모든 브라우저 윈도우들이 공유하며 윈도우나 브라우저가 닫혀도 사라지지  않는 영구적 저장소</p><p id="ab6b52d3-0558-44be-ae83-c2da94cb9cf1" class="">Session Storage: 한 세션 (한 윈도우)에 연결된 웹 사이트의 웹페이지들이 주고 받은 임시 데이터를 일시적으로 저장하기 위해 사용</p></li></ul><ul id="0be48593-fd6d-486a-a4a3-457cdddc3203" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">만약 사용자의 이름등 개인정보는 local과 session 둘 중 어디에 담아야할까? 자신의 생각: </span><p id="989d47d6-7f20-40f7-b79a-385a776c9ed5" class="">개인정보는 계속 저장되있으면 보안에 악영향을 미치므로 session에 담아야 한다고 생각</p></li></ul><h1 id="4516a167-8565-45a8-880b-9713be4be2c0" class=""> !주의사항</h1><p id="e226019d-23ed-4fad-aa8d-cdf5a9015132" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="beebd6df-89bb-4cee-b46b-1bc3f0bb6f16" class="">논의해보면 좋은 것들 🔥</h1><ul id="372dade5-e325-4749-8595-7815125fe4aa" class="bulleted-list"><li style="list-style-type:disc">Local Storage와 Session Storage의 차이에 대해 알아보기</li></ul><ul id="82475dd0-3851-4677-8a22-d8019786cd85" class="bulleted-list"><li style="list-style-type:disc">Local Storage가 사용되는 기능에 대해 리스트업 해보기</li></ul><p id="f63afff7-d87a-40c8-98e7-85cc666cb656" class="">
+</p></div></article></body></html>

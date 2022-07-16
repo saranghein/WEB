@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 2주차 워크북 </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="12d10582-dc13-4a4d-bf20-ca75a8b57d3d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">2️⃣</span></div><h1 class="page-title">Web 2주차 워크북 </h1></header><div class="page-body"><blockquote id="871386a0-17f0-4ba8-aeed-1af60b3f8ba2" class="">Made by 곤, 디모 </blockquote><h1 id="e542a5cb-98c8-46f0-a86b-a0659724018a" class="">핵심 키워드🎯 </h1><ul id="92cf01cf-5f8c-414e-a7f1-5b5c0bcb61d7" class="toggle"><li><details open=""><summary>CSS</summary><ul id="ccd70018-1ed6-430a-a575-43800bd77af3" class="toggle"><li><details open=""><summary>css 선언방식</summary><p id="eb9ff2fd-1c89-4a59-af1a-334a6c8d9138" class="">선택자{속성 : 값; 프로퍼티 : 값 ; } /*주석문*/
+대소문자 구분X</p><ul id="1b374f48-67b1-46c9-acd4-70443c65921e" class="bulleted-list"><li style="list-style-type:disc">인라인방식: 속성</li></ul><ul id="6c9062ef-1e23-4be5-a9fb-658bf2f3d494" class="bulleted-list"><li style="list-style-type:disc">internal style(내부 스타일 방식): &lt;style&gt;</li></ul><ul id="26b52c47-16f1-40ff-b502-76299b0599d9" class="bulleted-list"><li style="list-style-type:disc">external style(외부 스타일 방식): 상대경로</li></ul></details></li></ul><ul id="66880ed1-92f3-4427-ab46-84304ccebf34" class="toggle"><li><details open=""><summary>작성방법</summary><ol type="1" id="14a9674a-7f6f-4241-81b0-bbef77bc75d2" class="numbered-list" start="1"><li>&lt;style&gt;&lt;style&gt;태그 안에 스타일 시트 작성(&lt;head&gt;내에서만)</li></ol><ol type="1" id="0ae80d70-bfd6-4655-abe0-59c40868d649" class="numbered-list" start="2"><li>style 속성에 작성⇒가장 우선순위 높음</li></ol><ol type="1" id="724dbaa3-5348-4351-bae7-863d8cae9f64" class="numbered-list" start="3"><li>별도파일에 작성 후 &lt;link&gt;태그 or @import 로 불러 사용(&lt;head&gt;내에서만)
+&lt;<strong>link</strong> href=”css파일or URL” type=”text/css” rel=”stylesheet”&gt;(&lt;style&gt;X)
+<strong>@import</strong> url(css파일);==@import url(’파일’);==@import “파일”;
+(&lt;style&gt;내에서만)</li></ol></details></li></ul></details></li></ul><ul id="f8ba8cac-99fe-49a9-81b8-3e65724929f5" class="toggle"><li><details open=""><summary>html과 css 링크 </summary><ul id="be48803f-5924-4021-9eaf-c3346ea0e85b" class="bulleted-list"><li style="list-style-type:disc">상대 경로 </li></ul><ul id="4a59c746-4228-4c5d-8f3b-8bff7d012741" class="bulleted-list"><li style="list-style-type:disc">절대 경로</li></ul></details></li></ul><ul id="9e2e72db-a48f-48ab-8ac9-29a1cb83934b" class="toggle"><li><details open=""><summary>CSS 선택자(셀렉터) 우선순위</summary><p id="b54936a4-5117-4e37-907a-d9b04968f3fd" class="">,로 구분 </p><ul id="ed8a10d4-9aea-403f-b7d9-b1c92827d0cf" class="toggle"><li><details open=""><summary>1) !important(선택자X)</summary></details></li></ul><ul id="004fde00-d83e-4f98-b0ef-50b5e0369249" class="toggle"><li><details open=""><summary>2) id</summary><p id="0aaa0e45-3c98-4985-bed9-25e69025aebe" class="">동일한 이름의 id는 1개의 element에만 적용, 
+동시에 여러개의 id 지정 불가</p><ul id="da4af2b3-ac20-4c48-b2c2-9631de97d0d4" class="bulleted-list"><li style="list-style-type:disc">CSS
+#idname{ }
+div#id이름: 특정태그에만 적용되도록 함→다른 태그에는 사용불가</li></ul><ul id="8b8a56d6-89ad-4cf8-bf31-b9c6891894ac" class="bulleted-list"><li style="list-style-type:disc">HTML
+&lt;tag id=”idname”&gt;</li></ul><p id="2c6e957e-394c-4c09-8bcf-c209a5e6d074" class="">
+</p></details></li></ul><ul id="f49b51d3-4151-405c-a064-e16df4785a0e" class="toggle"><li><details open=""><summary>3) Class </summary><ul id="b2087177-5014-4f21-9bdf-20509b8e0964" class="bulleted-list"><li style="list-style-type:disc">CSS
+.clsssname{ }</li></ul><ul id="404f70ab-7776-4a74-a613-345f317dc8a1" class="bulleted-list"><li style="list-style-type:disc">HTML(space로 구분)
+&lt;tag class=”classname”&gt;</li></ul><ul id="6f81645e-5133-4550-8b86-9c0435e6d892" class="toggle"><li><details open=""><summary>가상 클래스 셀렉터(가상 선택자)</summary><p id="c2900a7b-1df2-458c-bfaf-f369f829815c" class="">: 뒤 빈칸X </p><table id="7d43370e-25eb-46d4-b964-f35ae33731a0" class="simple-table"><tbody><tr id="5af97f60-3ba9-4d6f-bec0-3f18752d6057"><td id="Kg&gt;s" class="">마우스</td><td id="ocGw" class="">:hover</td><td id="ueVG" class="">마우스 올라갈 때</td></tr><tr id="ae330a0c-98e1-4a6c-bfb9-b6e64e0dc282"><td id="Kg&gt;s" class=""></td><td id="ocGw" class="">:active</td><td id="ueVG" class="">마우스 누르고 있을 때</td></tr><tr id="6141e2b5-8f23-4274-bb58-299bade218e3"><td id="Kg&gt;s" class="">폼요소</td><td id="ocGw" class="">:focus </td><td id="ueVG" class="">키보드or마우스 클릭으로 focus를 받을때</td></tr><tr id="e7b85d5c-722d-40e0-9c45-7903b91b50be"><td id="Kg&gt;s" class="">링크</td><td id="ocGw" class="">:link </td><td id="ueVG" class="">방문하지 않은 링크에</td></tr><tr id="bd4dfeb1-cde8-4c28-816a-ec641906ac4e"><td id="Kg&gt;s" class=""></td><td id="ocGw" class="">:visited</td><td id="ueVG" class="">방문한 링크에</td></tr><tr id="73c191b0-8f04-4f0c-9da5-9cd68f43e4db"><td id="Kg&gt;s" class="">블록</td><td id="ocGw" class="">:first-letter</td><td id="ueVG" class="">&lt;p&gt;,&lt;div&gt;등 블록형 태그의 첫글자</td></tr><tr id="0fa3012b-e098-40ff-969e-ac8f78e0f2da"><td id="Kg&gt;s" class=""></td><td id="ocGw" class="">:first-line</td><td id="ueVG" class="">&lt;p&gt;,&lt;div&gt;등 블록형 태그의 첫라인</td></tr><tr id="039a9b8a-ac04-4205-adec-1b2c77f53919"><td id="Kg&gt;s" class="">구조</td><td id="ocGw" class="">:nth-child(even)</td><td id="ueVG" class="">짝수 번째 모든 자식 태그</td></tr><tr id="6dfa01cf-97a0-4512-896b-d46a9e278baa"><td id="Kg&gt;s" class=""></td><td id="ocGw" class="">:nth-child(1)</td><td id="ueVG" class="">첫번째 자식 태그</td></tr></tbody></table></details></li></ul></details></li></ul><ul id="136693a2-83b3-4b22-ae5e-128d8da68f8d" class="toggle"><li><details open=""><summary>전체 셀렉터(*)</summary></details></li></ul><ul id="9dd4f367-6409-42a8-87db-5fc40b284836" class="toggle"><li><details open=""><summary>속성셀렉터</summary></details></li></ul></details></li></ul><ul id="51485691-68ad-48a7-b6ac-eeb252f4bbb7" class="toggle"><li><details open=""><summary>CSS 속성 프로퍼티</summary><ul id="466fe71c-b55b-461d-91a3-be57050bff57" class="toggle"><li><details open=""><summary>inline element</summary><p id="414285b1-bd7a-4fcb-a725-4790f5398493" class="">block내</p><p id="2b43fe2c-09c2-4c38-bf36-af53c57350b6" class="">&lt;span&gt;,&lt;a&gt;,&lt;img&gt;,&lt;button&gt; </p><p id="8b07a980-1a6e-450d-99f9-da9fd51d6b41" class="">
+</p></details></li></ul><ul id="33212b74-94cf-445f-88bb-3d151fd1e831" class="toggle"><li><details open=""><summary>block element</summary><p id="8a7c49bc-4c6b-4b11-9072-96ef735ff459" class="">라인끝까지 차지</p><p id="d7e24465-0265-4858-ae8d-378ba5411323" class="">&lt;p&gt;,&lt;div&gt;,&lt;ul&gt;,&lt;li&gt;,&lt;h1&gt;</p></details></li></ul><ul id="ef7c6b55-0b7b-481d-9b51-13d43f2aa788" class="toggle"><li><details open=""><summary>BoxModel</summary><p id="b088a157-1b1f-4596-9007-f663a7595175" class="">시계방향 적용</p><ul id="787b8597-ce19-4f73-a87b-c67fefff31ab" class="toggle"><li><details open=""><summary>margin(여백)</summary><p id="d1eac32e-77f1-4357-bf8d-315ae1a13dca" class="">박스의 맨 바깥 영역, 테두리 바깥</p><p id="fcb203d7-1ade-43de-9e45-368670b424a1" class="">투명, 부모 태그의 배경이 비춰보임</p><table id="9861afac-2a2e-4767-a30b-0798ab589906" class="simple-table"><tbody><tr id="7083f6a8-a7bc-41fc-a285-69eb1f31d7b2"><td id="Tjrx" class="">margin</td><td id="mV_[" class=""></td></tr><tr id="23a7869c-6605-4201-a4e7-e986af3f3783"><td id="Tjrx" class="">margin-top</td><td id="mV_[" class=""></td></tr><tr id="401c0967-e50d-4e3d-8bf2-2c1920b5621a"><td id="Tjrx" class="">margin-right</td><td id="mV_[" class=""></td></tr><tr id="6b9ec73f-367f-48e5-9f62-ffef55236f06"><td id="Tjrx" class="">margin-bottom</td><td id="mV_[" class=""></td></tr><tr id="0d18d57e-0c7a-4863-9b0d-3e12082be7c2"><td id="Tjrx" class="">margin-left</td><td id="mV_[" class=""></td></tr></tbody></table></details></li></ul><ul id="be21dbd2-d63e-4b5c-a5f0-2bd5d66a44ac" class="toggle"><li><details open=""><summary>border(테두리)</summary><p id="828d4f2b-8b2d-4799-af40-2b1dcea8b3a4" class="">padding외부의 외곽선, 직선 점선 이미지 입힐 수 있음</p><p id="450fec1f-85e4-4768-8812-8a746c434956" class="">border: width <mark class="highlight-teal">style</mark> color</p><p id="6c856f23-4528-4740-8c8e-436f0d4f8614" class=""><mark class="highlight-teal">none hidden dashed solid</mark>....</p><table id="ac4ecad6-d000-460e-a3a5-c7ec5930f836" class="simple-table"><tbody><tr id="ff170ce3-0f88-4e8a-a954-9ad720bd0039"><td id="i&gt;c?" class="">border</td><td id="w`a`" class="" style="width:53.42499923706055px"></td><td id="tzgf" class="" style="width:47.17499923706055px"></td><td id="&gt;Qm@" class="" style="width:50.13750076293945px"></td></tr><tr id="b7f33709-9f81-4f3e-8dbb-c003bf4e1de0"><td id="i&gt;c?" class=""></td><td id="w`a`" class="" style="width:53.42499923706055px">width</td><td id="tzgf" class="" style="width:47.17499923706055px">style</td><td id="&gt;Qm@" class="" style="width:50.13750076293945px">color</td></tr><tr id="8a32c21d-64c7-4042-a486-479d649c60ee"><td id="i&gt;c?" class="">border-top-</td><td id="w`a`" class="" style="width:53.42499923706055px"></td><td id="tzgf" class="" style="width:47.17499923706055px"></td><td id="&gt;Qm@" class="" style="width:50.13750076293945px"></td></tr><tr id="3ae9a59c-eed8-4403-bb30-bec8c4edc35d"><td id="i&gt;c?" class="">border-right-</td><td id="w`a`" class="" style="width:53.42499923706055px"></td><td id="tzgf" class="" style="width:47.17499923706055px"></td><td id="&gt;Qm@" class="" style="width:50.13750076293945px"></td></tr><tr id="d55c5bd2-068a-422a-bbad-6a4874a691ce"><td id="i&gt;c?" class="">border-bottom-</td><td id="w`a`" class="" style="width:53.42499923706055px"></td><td id="tzgf" class="" style="width:47.17499923706055px"></td><td id="&gt;Qm@" class="" style="width:50.13750076293945px"></td></tr><tr id="4d2a257d-2d88-4bca-8eb9-7045b3ec3400"><td id="i&gt;c?" class="">border-left-</td><td id="w`a`" class="" style="width:53.42499923706055px"></td><td id="tzgf" class="" style="width:47.17499923706055px"></td><td id="&gt;Qm@" class="" style="width:50.13750076293945px"></td></tr><tr id="276a6e32-fd68-4048-b1e7-5494e1e7487f"><td id="i&gt;c?" class="">border-</td><td id="w`a`" class="" style="width:53.42499923706055px"></td><td id="tzgf" class="" style="width:47.17499923706055px"></td><td id="&gt;Qm@" class="" style="width:50.13750076293945px"></td></tr></tbody></table></details></li></ul><ul id="7013d775-b4f6-46f4-a64c-7695c52557d0" class="toggle"><li><details open=""><summary>padding</summary><p id="fe0eed47-dc9f-4e0c-abd6-408bff540737" class="">content를 직접 둘러싸고 있는 내부 여백</p><p id="e9eee620-32e5-4b29-81b0-a9d543228c2d" class="">태그의 배경색으로 칠해짐</p><table id="9e1be699-0773-4af9-9d94-900a8999080f" class="simple-table"><tbody><tr id="f4d1dff7-40dc-46b5-8881-396e77175d29"><td id="npbU" class="">padding-top</td><td id="MwlT" class=""></td></tr><tr id="9743fc43-a36a-48e2-89e8-88b90e426fce"><td id="npbU" class="">padding-right</td><td id="MwlT" class=""></td></tr><tr id="eda78e6f-8fb9-45f5-af6f-07e4a8f67ca3"><td id="npbU" class="">padding-bottom</td><td id="MwlT" class=""></td></tr><tr id="2e3a8d6f-f88a-40c2-ad5a-df53ecf0714c"><td id="npbU" class="">padding-left</td><td id="MwlT" class=""></td></tr><tr id="5e2d547d-8a95-4ef3-8920-e679e71cd3a0"><td id="npbU" class="">padding</td><td id="MwlT" class=""></td></tr></tbody></table></details></li></ul><ul id="db126954-5caa-4f26-8c19-a8474bfdcbae" class="toggle"><li><details open=""><summary>content</summary><p id="394fd947-7fdc-4ca0-97e2-2b7c92a854dc" class="">HTML태그의 텍스트나 이미지</p><table id="f23b5f65-8661-4581-b49c-00ea2ea7cc63" class="simple-table"><tbody><tr id="1fc6ebb0-6f81-4838-9326-932b90b97db4"><td id="T:&lt;p" class="">width</td><td id="mj[N" class=""></td></tr><tr id="e8b23a4b-730f-48f5-ad82-05954d80b8e7"><td id="T:&lt;p" class="">height</td><td id="mj[N" class=""></td></tr></tbody></table></details></li></ul><p id="f5fa8875-47e9-440d-80a3-483d48583919" class="">
+</p></details></li></ul><ul id="9f92b1db-a1df-4a58-9a97-a8d8b68e018b" class="toggle"><li><details open=""><summary>display</summary><ul id="1197935b-a751-443b-b28c-86e8a8fcceae" class="toggle"><li><details open=""><summary>display : block</summary><p id="09475bea-c164-40ea-9df5-ebf4f318579d" class="">width, height으로 박스 크기 변경가능</p></details></li></ul><ul id="16a40582-09cc-4296-9ad3-15ee260967bc" class="toggle"><li><details open=""><summary>display : inline</summary><p id="fb6c658d-5f92-42ba-9266-ea97af6a990e" class="">
+</p></details></li></ul><ul id="e1c9d3b6-958c-4249-b0a4-f6b68e4de61c" class="toggle"><li><details open=""><summary>display : inline-box</summary><p id="0c424ffc-cfa3-4c36-aad5-c73fb8ad1a79" class="">width, height, padding, margin등 조절 가능</p></details></li></ul></details></li></ul><ul id="1598fc94-eb28-49a3-8ce6-aa3e4b85f813" class="toggle"><li><details open=""><summary>단위 </summary><ul id="f556cc6f-70d4-4291-8181-d2902641fc89" class="bulleted-list"><li style="list-style-type:disc">em: 부모의 font-size기준 배수</li></ul><ul id="4fd38599-c39e-485c-a5be-3b13dbb33899" class="bulleted-list"><li style="list-style-type:disc">rem: root font-size 기준 배수</li></ul><ul id="996c7acf-60db-469c-8662-e3732e5c072d" class="bulleted-list"><li style="list-style-type:disc">%: 부모 기준</li></ul><ul id="ca142148-269e-4b81-b2f5-c48ffb31b843" class="bulleted-list"><li style="list-style-type:disc">px</li></ul></details></li></ul><ul id="841afbc0-6e61-4688-b55e-0e7095822d93" class="bulleted-list"><li style="list-style-type:disc">선택자 사이 간격 : 부모와 자식관계</li></ul><ul id="1d4bc6f6-1b8b-4173-a5db-3b6d932e3e8d" class="bulleted-list"><li style="list-style-type:disc">반응형 웹페이지: 크기에 맞게 레이아웃, 크기 변경
+화면의 크기가 다양해 px보다는 em, rem 권장<ul id="eb4d686e-6311-4a47-b802-ba495bf9eafc" class="bulleted-list"><li style="list-style-type:circle">flex 사용 목적</li></ul></li></ul><ul id="592c18c1-494d-4304-984c-aedbbd9867fe" class="bulleted-list"><li style="list-style-type:disc">user agent style: 기본 스타일<ul id="38ebcaa1-fe20-4884-ab3f-9731ca2d9d35" class="bulleted-list"><li style="list-style-type:circle">reset css: 브라우저에 따라 달라짐</li></ul></li></ul></details></li></ul><ul id="164a2b60-a27d-4128-ab28-07408a316dd3" class="toggle"><li><details open=""><summary>FlexBox</summary><p id="53b3dcc0-b90b-4530-a618-a04f9da5566e" class="">주축(main-axis)/교차축(across-axis)</p><ul id="b537229b-1bd3-4233-be2e-c01d8cd2233d" class="bulleted-list"><li style="list-style-type:disc">flex container: 컨테이너</li></ul><ul id="005a8f05-40cf-445d-a063-bed2e109a0e6" class="bulleted-list"><li style="list-style-type:disc">flex item: 컨테이너안 요소들</li></ul><ul id="f6df0ce0-09c4-4acc-be61-554d17482471" class="toggle"><li><details open=""><summary>flex 정렬방식</summary><ul id="5ee0e358-b18f-48f6-b835-f7300cba784b" class="toggle"><li><details open=""><summary>flex container에 적용하는 속성</summary><ul id="9937392b-1f2d-47e6-ac99-761088b054b9" class="bulleted-list"><li style="list-style-type:disc">flex-direction: 배치 방향 설정</li></ul><table id="3d81cc76-b72c-4c40-bbb8-73e7496418d3" class="simple-table"><tbody><tr id="81bb1e23-1722-47b3-b3fb-0c54624cbe2e"><td id="myJC" class=""></td><td id="ripz" class="">주축</td><td id="E|C=" class="">방향</td></tr><tr id="fdc9ca2c-2a9c-4d69-9c4e-7c08df110596"><td id="myJC" class="">row</td><td id="ripz" class="">기본값/ 주축: 행</td><td id="E|C=" class="">Content 방향</td></tr><tr id="f28e13f0-5a04-4dae-b222-18dccca25841"><td id="myJC" class="">row-reverse</td><td id="ripz" class="">행</td><td id="E|C=" class="">Content 반대</td></tr><tr id="b0b91b64-c389-4074-bea7-8f192a8f1adb"><td id="myJC" class="">column</td><td id="ripz" class="">열</td><td id="E|C=" class="">Content 방향</td></tr><tr id="2daec9de-9efd-4f6b-ad0d-ee5335de42bf"><td id="myJC" class="">column-reverse</td><td id="ripz" class="">열</td><td id="E|C=" class="">Content 반대</td></tr></tbody></table><ul id="ac0cc5fa-8346-4510-a5d5-89b54dee1546" class="bulleted-list"><li style="list-style-type:disc">flex-wrap: 줄넘김 처리 설정</li></ul><table id="a4b8305b-32bd-46a7-9646-81cd2499abef" class="simple-table"><tbody><tr id="54cc5eb7-6b59-49e0-9fa3-59c4d9269946"><td id="j^ZJ" class="">nowrap</td><td id="ssxK" class="">기본값/줄바꿈X</td></tr><tr id="1b028f57-63b7-4cf8-8138-00809c5684eb"><td id="j^ZJ" class="">wrap</td><td id="ssxK" class="">줄바꿈</td></tr><tr id="b136dab7-4ff4-4dc5-8b43-0d94d7361015"><td id="j^ZJ" class="">wrap-reverse</td><td id="ssxK" class="">줄바꿈 역순</td></tr></tbody></table><ul id="64612ba7-f286-4241-9b53-48a78bf74250" class="bulleted-list"><li style="list-style-type:disc">flex-flow: flex-direction과 flex-wrap 한꺼번에 지정</li></ul><p id="96c28a59-b3df-4f5b-bd02-563119c5ec7d" class="">justify: 메인축 방향 정렬
+align: 수직축 방향 정렬</p><ul id="cb9dbe71-586a-4052-93ec-e0591d7c6e3a" class="bulleted-list"><li style="list-style-type:disc">justify-content: 메인축 방향 정렬</li></ul><table id="56d3520f-aee9-4c3c-b8d6-d8d5355969aa" class="simple-table"><tbody><tr id="c6f682ed-ffaf-4b26-8af9-f22f2a02c21d"><td id="^Y}:" class="">flex-start</td><td id="wgVW" class="">기본값/ item시작점으로 정렬</td></tr><tr id="c4cc2080-8993-4575-bc44-c84b9f1b7cb8"><td id="^Y}:" class="">flex-end</td><td id="wgVW" class="">끝점으로 정렬</td></tr><tr id="3c90fa3d-11ad-4d3c-a709-33c2b5ac44fc"><td id="^Y}:" class="">center</td><td id="wgVW" class="">가운데 정렬</td></tr><tr id="209effd6-89fe-4ba4-bdd9-9d759414a1ed"><td id="^Y}:" class="">space-between</td><td id="wgVW" class="">사이 균일 간격</td></tr><tr id="41cf5b54-fafd-4b2f-af4e-e39de88d2a4c"><td id="^Y}:" class="">space-around</td><td id="wgVW" class="">둘레 균일 간격</td></tr><tr id="952cd166-29f4-42cd-8d30-0bfce30f9619"><td id="^Y}:" class="">space-evenly</td><td id="wgVW" class="">사이, 양끝 균일 간격</td></tr></tbody></table><figure id="1f982eea-bd09-4f6c-a75c-2de4841b6f4d" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled.png"><img style="width:857px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled.png"/></a></figure><ul id="a8cbd6db-d086-48e6-9dde-666de3c6149a" class="bulleted-list"><li style="list-style-type:disc">align-items: 수직축 방향 정렬</li></ul><table id="2fe27640-264d-466c-b530-d74497406ea0" class="simple-table"><tbody><tr id="63739db4-f402-4780-a3cc-b869ad11b312"><td id="q=F=" class="">stretch</td><td id="KaDn" class="">기본값/수직축 방향으로 끝까지 늘어남</td></tr><tr id="58b1004a-db76-4077-ab2c-9e080db7d4d2"><td id="q=F=" class="">flex-start</td><td id="KaDn" class="">item시작점 정렬</td></tr><tr id="fd1903a3-f973-4ccc-986b-1133fd5d2f22"><td id="q=F=" class="">flex-end</td><td id="KaDn" class="">끝점 정렬</td></tr><tr id="c80507fb-49e4-404d-a1bb-d1e6c15b0318"><td id="q=F=" class="">center</td><td id="KaDn" class="">가운데 정렬</td></tr><tr id="84a1fede-c92a-4ce0-a1b5-dcea23c0a94f"><td id="q=F=" class="">baseline</td><td id="KaDn" class="">텍스트 베이스 라인 기준 정렬</td></tr></tbody></table><ul id="ac7e0c65-a6d7-4324-b61f-8a8a2b0fe70f" class="bulleted-list"><li style="list-style-type:disc">align-content: 여러행 정렬</li></ul><table id="f7cb02b5-3fc4-4699-8bf0-a69795a83dc1" class="simple-table"><tbody><tr id="b56570da-2b77-4ad5-83b6-0635cb60fa6e"><td id="KVP_" class="">stretch</td><td id="Iz`Q" class=""></td></tr><tr id="ca857eb9-d456-4c8c-b96a-61de1b58ef0c"><td id="KVP_" class="">flex-start</td><td id="Iz`Q" class=""></td></tr><tr id="90703b71-aad0-498c-a1fa-f82b6e253357"><td id="KVP_" class="">flex-end</td><td id="Iz`Q" class=""></td></tr><tr id="6f382bfc-59b4-4ec7-ba47-1fda391b6412"><td id="KVP_" class="">center</td><td id="Iz`Q" class=""></td></tr><tr id="adf34526-e64d-4e93-9058-af40d3b06dca"><td id="KVP_" class="">space-between</td><td id="Iz`Q" class=""></td></tr><tr id="988576d2-e572-43aa-9b43-febdedc28620"><td id="KVP_" class="">space-around</td><td id="Iz`Q" class=""></td></tr><tr id="51da6c2a-ff57-4bd7-85c1-1918343fc262"><td id="KVP_" class="">space-evenly</td><td id="Iz`Q" class=""></td></tr></tbody></table></details></li></ul><ul id="8caef89e-e348-4142-8a57-63b9b74dfa75" class="toggle"><li><details open=""><summary>flex item에 적용하는 속성</summary><ul id="38120838-f498-4892-8869-74def14d88fb" class="bulleted-list"><li style="list-style-type:disc">flex-basis: flex item의 기본 크기 설정<p id="cee5acd3-8641-482e-9178-283d3aaea214" class="">flex-direction이 row일 때는 너비, column일 때는 높이
+각종 단위 가능
+미만→늘어남/초과→유지 (width는 초과→줄어듦)</p></li></ul><ul id="3a847839-61d2-45dc-b6da-e86c7ff2dc09" class="bulleted-list"><li style="list-style-type:disc">flex-grow: 유연하게 늘림
+지정된 숫자의 비율로 여백 나누어 가짐</li></ul><table id="f4a50b94-f7dc-4ca2-a1f5-535ad3e9e3b7" class="simple-table"><tbody><tr id="e1c5a69e-7f37-4613-976b-d2f48d58c4d6"><td id="o`;_" class="">0</td><td id="uTbp" class="">기본값</td></tr><tr id="5278fe55-c2e2-4232-8fdf-bf15f2349f72"><td id="o`;_" class="">1~</td><td id="uTbp" class="">flexible</td></tr></tbody></table><ul id="8026c9e4-c84c-405a-9d09-bd222deb600f" class="bulleted-list"><li style="list-style-type:disc">flex-shrink: 유연하게 줄임</li></ul><table id="c998751d-a608-452e-9352-6b87cf1cbcc7" class="simple-table"><tbody><tr id="b0e8e4c3-407e-4ef8-bebc-c42e5f1d5659"><td id="ZG|;" class="">1</td><td id="nK^^" class="">기본값</td></tr><tr id="9af5b7db-7e72-4102-91b1-6fb2c114f102"><td id="ZG|;" class="">0~</td><td id="nK^^" class="">flexible(flex-basis보다 작아짐)</td></tr></tbody></table><ul id="5ef5af6d-d8f9-4fba-8302-9fbba61e5c6c" class="bulleted-list"><li style="list-style-type:disc">flex: grow, shrink, basis의 축약형</li></ul><ul id="9b67def5-f2ee-4c06-9874-1d4cedb28786" class="bulleted-list"><li style="list-style-type:disc">align-self: 수직축으로 아이템 정렬</li></ul><ul id="03611f4d-7a8f-4d57-9aa3-abada01d085a" class="bulleted-list"><li style="list-style-type:disc">order: 배치순서</li></ul><ul id="91dc11e9-0451-40d8-8406-a0edb0e56130" class="bulleted-list"><li style="list-style-type:disc">z-index: z축 정렬
+숫자가 클수록 위로
+기본값: 0 </li></ul></details></li></ul></details></li></ul><ul id="8df89a15-7c57-4bed-9c19-d6a4a2168605" class="bulleted-list"><li style="list-style-type:disc">flex vs grid<ul id="e569ebfd-a8c6-4221-bdeb-77708d30d651" class="bulleted-list"><li style="list-style-type:circle">grid 사용시, 정렬방식 (가로정렬, 세로 정렬 방법)<ul id="eb7193d8-5fad-4fe2-a857-843d7e203781" class="bulleted-list"><li style="list-style-type:square">gap</li></ul><ul id="86d6714f-0448-4736-8a44-595ca74f71f0" class="bulleted-list"><li style="list-style-type:square">grid-column-start</li></ul><ul id="9fa746a9-556c-41fb-accc-6efa8353edc8" class="bulleted-list"><li style="list-style-type:square">grid-column-end</li></ul></li></ul></li></ul></details></li></ul><ul id="cdb9e407-1224-451a-9957-57536c16df81" class="toggle"><li><details open=""><summary>Position</summary><p id="8830c80d-1352-4e13-a2da-881b8f7a17c6" class="">원하는 위치에 박스 배치</p><ul id="71d0eaaa-7114-49c9-b697-cb650fce7c40" class="toggle"><li><details open=""><summary>position : static</summary></details></li></ul><ul id="0c31ff66-0a13-4a63-a8fa-26fee658fc65" class="toggle"><li><details open=""><summary>position : relative</summary><ul id="8c3ec31a-e7a3-4260-b8d6-19c24a58fd31" class="bulleted-list"><li style="list-style-type:disc">top</li></ul><ul id="79ad495f-1702-405e-93d8-bcc7b8377a12" class="bulleted-list"><li style="list-style-type:disc">z-index</li></ul></details></li></ul><ul id="720461d6-7423-4a3a-8e22-7ecbff134176" class="toggle"><li><details open=""><summary>position : absolute</summary><ul id="649e5d86-3ab9-41b3-88a7-c25212354ed2" class="bulleted-list"><li style="list-style-type:disc">부모 태그 기준</li></ul></details></li></ul><ul id="8edd34d5-bf8f-4f39-9101-0dffbfe56567" class="toggle"><li><details open=""><summary>position : fixed </summary><ul id="04e22abc-7e07-4caa-9a75-d63193b36638" class="bulleted-list"><li style="list-style-type:disc">scroll</li></ul><ul id="bf2b2643-b9cf-4e89-9df0-f23a264a3411" class="bulleted-list"><li style="list-style-type:disc">페이지 기준</li></ul></details></li></ul><ul id="b4382bc7-c124-4f28-9b82-ccb28e7b2444" class="toggle"><li><details open=""><summary>position : sticky</summary></details></li></ul></details></li></ul><h1 id="6a3cc5cb-46fa-4ed4-b18e-ea6b82b41d1b" class="">2주차 수업 후기 📢</h1><ul id="ebcc3ac2-cd7f-45b4-9644-37466ec266da" class="bulleted-list"><li style="list-style-type:disc">2주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="7f6ff7d8-b3c8-468c-84f9-4b67c567df93" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="5609681c-e3aa-409e-aeca-e110794aa7e1" class="">실습</h1><h3 id="8a2bd532-f4e9-43d8-865a-2256c170b111" class="">CSS 실습</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1e9b03a7-49da-47b5-a5b3-8a2c4f333a80"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">실습 영상을 참고해서 진행해주시고, 진행한 내용은 캡처해서 아래 체크리스트에 첨부해주세요!</div></figure><p id="a71d4098-30d5-4265-aecb-cbf857a8ec62" class="">
+</p><h3 id="e294f73b-f12e-420f-a766-cba77c819520" class="">📝 실습 체크리스트 (<mark class="highlight-red">인증샷 필수!</mark>)</h3><ul id="544a9c9d-3405-4b9b-bb0e-939f2ff6e501" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">실습 강의대로 index.html과 style.css 코드 각각 작성 (<strong>상대경로 </strong>를 입력하여 링크)</span></li></ul><ul id="44eb16dd-2340-4b06-a8da-04af80323110" class="toggle"><li><details open=""><summary>코드</summary><figure id="1fa7ca67-7d99-4e01-914e-9829545fb9a7" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%201.png"><img style="width:1037px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%201.png"/></a></figure></details></li></ul><ul id="1fe265b8-7c46-4e15-b084-ad4570cd0206" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">html의 <code>class</code>과<code>id</code>를 <strong>모두</strong> 이용하여 <code>&lt;div&gt;</code> 태그의 배경색을 최소 4개 이상의 색깔로 표현하기.</span></li></ul><ul id="6330e563-b047-4044-b3e2-eceec8d71c1c" class="toggle"><li><details open=""><summary>코드</summary><figure id="b43fb231-e99c-46da-be21-cf1da415c66f" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%202.png"><img style="width:716px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%202.png"/></a></figure></details></li></ul><ul id="fef6717a-e495-4574-b637-bdc193bb28b3" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">hover와 active, focus를 사용하여 색깔을 바꿔보기.</span></li></ul><ul id="79eb1760-21f8-4950-8d98-f61707e0eceb" class="toggle"><li><details open=""><summary>코드</summary><p id="92c128ec-ffeb-4c38-afb9-b4e90bd0fb01" class="">hover</p><figure id="c6516bc4-02ae-4b32-a38d-b2f878745d1f" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%203.png"><img style="width:897px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%203.png"/></a></figure><p id="ffd5a682-07d4-41e9-acfd-66b9efa3e354" class="">active</p><figure id="5b756f9e-1750-4417-92fa-a7b46615ce92" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%204.png"><img style="width:897px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%204.png"/></a></figure><p id="dcb14256-4c4d-4b1e-b632-6fd15455dee6" class="">focus</p><figure id="063b44e7-3cb4-4132-83df-d47adfdbd536" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%205.png"><img style="width:901px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%205.png"/></a></figure></details></li></ul><ul id="77ea2928-03ec-43a5-b844-6f76e9ecab20" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">nth-child를 이용하여 5번째<code>&lt;p&gt;</code> 를 사라지게 하기.</span></li></ul><ul id="aa5a1c5f-c1cd-42aa-8fb2-e85b631b2da7" class="toggle"><li><details open=""><summary>코드</summary><figure id="d2de8aef-257a-4cb9-b547-95389dadc3f4" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%206.png"><img style="width:520px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%206.png"/></a></figure></details></li></ul><ul id="b93737a2-0adb-4646-b9e7-32cd0acff5f8" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">5번째 <code>&lt;p&gt;</code>에 <code>margin</code>: 30px 40px 50px 60px , <code>padding</code>:10px , <code>solid blue border</code> 3px 설정.</span><p id="d02f2d91-7068-4def-b1fc-5b39a80124c1" class="">(단, 아래 테두리는 10px)</p></li></ul><ul id="f07c020d-1738-447d-a406-98dc43e2dea3" class="toggle"><li><details open=""><summary>코드</summary><figure id="09e1159d-c248-4c99-b43d-72d421825c53" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%207.png"><img style="width:491px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%207.png"/></a></figure></details></li></ul><ul id="286f0ef9-5e11-42f2-8fcc-66569a15a1d6" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">실습 내용을 참고하여 다음과 같은 그림을 구현하는 코드 짜기. <strong>(단, flexbox 이용)</strong></span></li></ul><figure id="268af392-2d84-42c5-8c07-334d7d3dadd4" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%208.png"><img style="width:1454px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%208.png"/></a></figure><ul id="83caefd8-99b0-4363-b711-d1420933f9f7" class="toggle"><li><details open=""><summary>코드</summary><figure id="c1b00ac8-07da-4a5e-a55c-815a793fd997" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%209.png"><img style="width:897px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%209.png"/></a></figure></details></li></ul><ul id="5257f9af-d6e4-4b0e-a39d-f57296264f02" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">FLEX BOX 2문제 풀어보기 &amp; 해설</span></li></ul><ul id="7e571c03-9b8c-4698-9187-e0e8b98ba92b" class="toggle"><li><details open=""><summary>해설</summary><p id="7a4d2e23-ba81-45ad-a4d4-2cf033b2f4cc" class="">2번: center를 이용해 가운데로 이동시킴</p><figure id="b18fbf12-3b16-4c77-9409-3b01fe754331" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2010.png"><img style="width:1856px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2010.png"/></a></figure><p id="2f656e70-d5d0-4670-98d7-e9c040d9b916" class="">3번: space-around를 이용해 양쪽끝과 사이에 빈칸이 존재하도록</p><figure id="67310beb-fdad-41e9-a793-8abbe2ebc053" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2011.png"><img style="width:1862px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2011.png"/></a></figure></details></li></ul><ul id="6ca63d58-e0cc-452e-89f8-116e949e9deb" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">CSS Dinner 2문제 풀어보기 &amp; 해설</span></li></ul><ul id="c363db38-85da-4417-a921-bfb03f80faa0" class="toggle"><li><details open=""><summary>해설</summary><p id="a9a6775d-a242-41e3-b3d9-0099ba20fc2f" class="">3번: id이므로 #을 이용함</p><figure id="83b533ae-ddb7-4af8-99ae-9cfc8d580d9b" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2012.png"><img style="width:1315px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2012.png"/></a></figure><p id="107496c3-9869-42ae-8698-906bc20df69a" class="">4번: plate안의 apple을 선택(부모-자식)</p><figure id="938012ba-0fd5-48ba-bb19-0b2e60fbe5a9" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2013.png"><img style="width:1292px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2013.png"/></a></figure></details></li></ul><ul id="be1098b9-e50a-4d3d-ba9e-ddc96297208d" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">z-index를 이용하여 컨테이너의 뒤로 <code>&lt;div class=”item”&gt;2&lt;/div&gt;</code>을 이동시키기.</span></li></ul><ul id="7c055482-4326-4a1a-b2ef-4334c3aad08f" class="toggle"><li><details open=""><summary>코드</summary><figure id="b54d6121-4738-482a-853d-4f83b218bf6c" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2014.png"><img style="width:892px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2014.png"/></a></figure></details></li></ul><ul id="72eee101-6901-4e20-b3a6-add6e9aee400" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">스크롤 내려도 <code>&lt;div class=”item”&gt;2&lt;/div&gt;</code> 고정시키기 (단, <strong>sticky , fixed 각각 구현하기)</strong></span></li></ul><ul id="f75a7d11-f2ed-4e99-a42c-856f60414910" class="toggle"><li><details open=""><summary>코드</summary><p id="91b111f0-545f-4d44-a2d1-a22016006c80" class="">sticky</p><figure id="b8d76eef-c3f8-47db-81c5-adc17802dd73" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2015.png"><img style="width:893px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2015.png"/></a></figure><p id="35e4203c-0931-4d79-bf1c-3c295765bfe8" class="">fixed</p><figure id="0ce3c870-6266-4b23-979b-a246c402939f" class="image"><a href="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2016.png"><img style="width:896px" src="Web%202%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1%20%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%87%E1%85%AE%E1%86%A8%2012d10582dc134a4dbf20ca75a8b57d3d/Untitled%2016.png"/></a></figure></details></li></ul><h3 id="094a1280-32df-4c13-8761-cdc69513f148" class="">🔥 트러블 슈팅(실패한 경험도 성장을 위한 경험!) </h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7f84bd93-fdb8-47fb-b3f8-c9e420747205"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">실습을 진행하면서 어려웠던 부분이나 실패한 부분이 있다면 아래 양식에 맞춰 작성해주세요!</div></figure><ul id="5f284dbc-9783-4f86-981f-06b6bc981d63" class="toggle"><li><details open=""><summary>트러블 슈팅</summary><p id="9b310187-67c0-46b4-891a-99419413e247" class="">[ 문제 원인 ]</p><p id="cd217a13-a58e-4409-b446-26e037622911" class="">
+</p><p id="ebd3b03d-2ed2-44d9-9c28-4d005f87341e" class="">[ 해결 방안 ] </p><p id="e178b215-5ade-484b-a927-1002c2579e74" class="">
+</p><p id="08c32324-4214-4a35-8c4d-c231a0d10bfa" class="">[ 참고 자료 ]</p></details></li></ul><h1 id="f9e43461-d8f5-4bda-814e-6e7044b80b38" class=""> !주의사항</h1><p id="c6e0c641-2295-46e0-8b6b-e20816fafe7e" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="28759327-a09a-45bc-8e2a-516589a354e3" class="">논의해보면 좋은 것들 🔥</h1><ul id="888e9fc8-99e6-45a8-a131-bf173524d9ee" class="bulleted-list"><li style="list-style-type:disc">한 사이트에서 html과 CSS가 어떻게 maping되는지 알아보기 (브라우저의 개발자 도구 사용)</li></ul><ul id="657a647e-10da-453e-b993-156ec11d8be8" class="bulleted-list"><li style="list-style-type:disc">개발자들이 css inline 방식을 지양하는 이유에 대해서 토의<ul id="f1c257cd-5574-4f68-9707-713bbf8f3ec1" class="bulleted-list"><li style="list-style-type:circle">자신이 선호하는 방식에 대해서 토의</li></ul></li></ul><ul id="945480a8-bbc4-44ba-9c35-dd084434de6d" class="bulleted-list"><li style="list-style-type:disc">css를 사용해보면서 어려웠던 점들 공유</li></ul><ul id="6ea5ea40-4ec6-4968-a03e-e9d678ac96a6" class="bulleted-list"><li style="list-style-type:disc">flex, grid에 대해서 토의 (어떤 상황에 적합할지 토의)</li></ul><ul id="c84933d7-99b6-4554-8ad5-8f42a6da8bac" class="bulleted-list"><li style="list-style-type:disc">flex, grid 직접 적용해보기</li></ul><ul id="16960cf4-6cce-4e20-ac61-68020bf1ec2a" class="bulleted-list"><li style="list-style-type:disc">position의 값들(absolute, inherit, relative)를 직접 html에 적용해보고 익히기</li></ul><ul id="6ac894b0-2fe9-44e8-8aa7-80cb7d7211a6" class="bulleted-list"><li style="list-style-type:disc">자신이 학습해온 position속성들에 대해 공유</li></ul><p id="b4f6c77a-a87a-4714-94ae-3b0f0ce7cb98" class="">
+</p></div></article></body></html>

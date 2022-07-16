@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 5주차 워크북</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ae1336d-3c2c-4fd9-839e-3d960b1d5c22" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">5️⃣</span></div><h1 class="page-title">Web 5주차 워크북</h1></header><div class="page-body"><h1 id="6c576c3a-b5a1-470c-bb96-38b2ef17a0bf" class="">핵심 키워드 🎯 </h1><h3 id="4ce90530-a437-4137-af35-ac23578f8897" class="">이벤트</h3><ul id="10c205ce-ca7a-4b68-b95b-884b7fed41e9" class="bulleted-list"><li style="list-style-type:disc">시용자의 입력 행위, 문서나 브라우저의 상태 변화를 브라우저가 javascript코드에게 알리는 통지<ul id="c973c3ff-6684-4fd5-a6a8-aacb43557ff6" class="bulleted-list"><li style="list-style-type:circle">사용자의 입력 행위(마우스 클릭, 키보드 입력, 이미지나 HTML문서의 로딩, 타임아웃 등)</li></ul><hr id="c35a6aee-eea8-4fe0-8261-b0f10d14197f"/></li></ul><ul id="285cd9a6-e44c-4ee0-93f3-add23b2ef8fc" class="bulleted-list"><li style="list-style-type:disc">이벤트 리스너<ul id="75b1e600-f3f1-499c-b54b-0f20a89fc71f" class="bulleted-list"><li style="list-style-type:circle">발생한 이벤트에 적절히 대처하기 위해 작성된 javascript코드</li></ul><ul id="e2278c28-7aa9-4028-b03f-2093c5b4e1da" class="bulleted-list"><li style="list-style-type:circle">이벤트 이름 앞에 on</li></ul><ul id="c36ea0fd-eb09-4132-9000-9868fbb1e84a" class="toggle"><li><details open=""><summary>주요 이벤트 리스너</summary><table id="f8708c84-b274-4c45-bb63-124b4b3c0e7f" class="simple-table"><tbody><tr id="c4ccbc06-a8e1-4234-a9f7-2e0581f0d17a"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onkeydown</th><td id="vAgj" class="" style="width:737.9091186523438px">사용자가 아무 키 누르는 순간</td></tr><tr id="8a0a5e98-db44-4951-8189-b8fa6f9294ff"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onkeypress</th><td id="vAgj" class="" style="width:737.9091186523438px">사용자가 알파뉴메릭 키를 누르는 순간</td></tr><tr id="4b842e58-24b4-40b4-9964-c1073904db49"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onkeyup</th><td id="vAgj" class="" style="width:737.9091186523438px">사용자가 누른 키를 놓는 순간</td></tr><tr id="659c0854-4256-4db3-876c-0d9f1e66f8ae"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onclick</th><td id="vAgj" class="" style="width:737.9091186523438px">사용자가 객체에 클릭할 때</td></tr><tr id="3d22ce05-3865-46d8-ba0f-62195fb4ed52"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">oncontextmenu</th><td id="vAgj" class="" style="width:737.9091186523438px">객체에 오른쪽 마우스 버튼이 클릭될 때</td></tr><tr id="8373e1c9-1a67-4560-afe6-0677ad1bdb32"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px"></th><td id="vAgj" class="" style="width:737.9091186523438px">컨텍스트 메뉴를 출력하고자 할 때</td></tr><tr id="1cbb7db4-8552-4c60-b1a5-af46b447d493"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">ondblclick</th><td id="vAgj" class="" style="width:737.9091186523438px">객체에 더블 클릭될 때</td></tr><tr id="2d03f417-24e2-4cbe-b6ad-8d989f605005"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmousedown</th><td id="vAgj" class="" style="width:737.9091186523438px">객체에 마우스 버튼이 눌러지는 순간</td></tr><tr id="1c20428e-533d-4006-b0b8-84f73435364b"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmouseenter</th><td id="vAgj" class="" style="width:737.9091186523438px">마우스 커서가 객체 영역 안으로 들어가는 순간</td></tr><tr id="11e17383-b86b-47a2-a596-d5c9f8713607"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmouseleave</th><td id="vAgj" class="" style="width:737.9091186523438px">마우스 커서가 객체 영역에서 벅어나는 순간</td></tr><tr id="77ee138f-b215-465c-af5d-ba7ef1edaf70"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmousemove</th><td id="vAgj" class="" style="width:737.9091186523438px">객체 위에서 마우스가 움직이는 동안 계속 발생</td></tr><tr id="d47df36f-0e3b-41fb-95db-207b228c1189"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmouseover</th><td id="vAgj" class="" style="width:737.9091186523438px">마우스커서가 객체 영역(자식들도 포함) 안으로 들어가는 순간</td></tr><tr id="cb2ce73e-7050-42e9-af50-ef059c1a4bd0"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmouseout</th><td id="vAgj" class="" style="width:737.9091186523438px">마우스커서가 객체 영역(자식들도 포함)에서 벗어나는 순간</td></tr><tr id="c6e4eea8-4568-4a0f-a0e7-0d35209678e4"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onmouseup</th><td id="vAgj" class="" style="width:737.9091186523438px">눌러진 마두스 버튼을 놓는 순간</td></tr><tr id="60a02975-6c57-42fa-9582-649a31ccfb75"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onwheel</th><td id="vAgj" class="" style="width:737.9091186523438px">마우스 휠을 굴리는 매 순간</td></tr><tr id="b1558b8a-0782-4dd5-8ffe-de9afefc996b"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px"></th><td id="vAgj" class="" style="width:737.9091186523438px"><del>onmousewheel</del></td></tr><tr id="e667d62f-c4a6-4bc9-a6ef-de304c040244"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onunload</th><td id="vAgj" class="" style="width:737.9091186523438px">웹 페이지가 언로드된 후</td></tr><tr id="5331d046-9c99-45c8-890b-b4c8f5ea03b3"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onbeforeprint</th><td id="vAgj" class="" style="width:737.9091186523438px">웹 페이지 프린트나 미리보기를 시작하기 직전</td></tr><tr id="b721725e-d244-4d0e-b2fe-270833af68ff"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onafterprint</th><td id="vAgj" class="" style="width:737.9091186523438px">웹페이지 프린트를 끝냈거나 미리보기를 마치고 돌아갈 때</td></tr><tr id="a7350381-6d40-4cda-ae59-52b94c1777c7"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onfocus</th><td id="vAgj" class="" style="width:737.9091186523438px">객체가 포커스를 가지게 되었을 때</td></tr><tr id="0f1d3d67-2077-4492-a83c-a1825f0882ce"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onblur</th><td id="vAgj" class="" style="width:737.9091186523438px">객체가 포커스를 잃을 때</td></tr><tr id="64b3fe22-a7c9-416a-aba3-db7db36a9fda"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onchange</th><td id="vAgj" class="" style="width:737.9091186523438px">&lt;input&gt;, &lt;keygen&gt;, &lt;select&gt;, &lt;textarea&gt;의 텍스트나 선택된 내용, 체크 상태 등이 변할 때</td></tr><tr id="6f7cd9c6-01f3-4328-bda2-2553145d6caa"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onreset</th><td id="vAgj" class="" style="width:737.9091186523438px">사용자가 폼의 reset버튼을 누르거나 javascript코드로 폼을 리셋시켯을 때, 폼의 모든 요소들이 초기 상태로 리셋될 때</td></tr><tr id="30438978-dab7-47bc-98ba-9507760d1514"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onsearch</th><td id="vAgj" class="" style="width:737.9091186523438px">&lt;input type=”search”&gt;에 검생 텍스트를 입려가고 &lt;Enter&gt;키를 누를 때</td></tr><tr id="693d0d9d-a42e-4b69-96e1-9978112d7d59"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onselect</th><td id="vAgj" class="" style="width:737.9091186523438px">&lt;textarea&gt;, &lt;input type=”text|password”&gt;에 입력된 텍스트를 사용자가 선택할 때</td></tr><tr id="a2942fa2-6865-4ffd-a65a-a3b9f6a04838"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px"></th><td id="vAgj" class="" style="width:737.9091186523438px">예) 마우스로 긁어 선택하는 경우</td></tr><tr id="9cebfbd3-6593-4a1e-a117-1e1ab3ec71f5"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onsubmit</th><td id="vAgj" class="" style="width:737.9091186523438px">사용자가 submit버튼을 클릭해 폼을 전송할 때</td></tr><tr id="de104497-f70f-4881-b389-3c387b480b9c"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px"></th><td id="vAgj" class="" style="width:737.9091186523438px">javascript코드로 form 객체의 submit()메소드를 호출할 때는 이벤트 발생X</td></tr><tr id="fdc5ae66-9045-4505-b2b3-96b6a3f176bb"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onresize</th><td id="vAgj" class="" style="width:737.9091186523438px">윈도우, 프레임 혹은 객체의 크기가 변경될 때</td></tr><tr id="51da2fd0-91b9-44e9-8d4f-a413baa0c63c"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onload</th><td id="vAgj" class="" style="width:737.9091186523438px">문서나 이미지의 로딩이 완료된 직후</td></tr><tr id="a6b9b34c-0e06-45f7-9936-97a1f77f8ba5"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onerror</th><td id="vAgj" class="" style="width:737.9091186523438px">문서나 이미지, 리소스 로딩 시 오류가 발생할 때</td></tr><tr id="17fe7212-6c06-4a0d-b2ce-23deafd49560"><th id="z}L{" class="simple-table-header-color simple-table-header" style="width:119.30682373046875px">onabort</th><td id="vAgj" class="" style="width:737.9091186523438px">이미지나 문서의 로딩이 중단된 경우</td></tr></tbody></table></details></li></ul><hr id="0cc6d2a6-e1ba-433b-a98e-c9843eb0a9ca"/></li></ul><ul id="7f6e60cd-542b-41ed-8084-ba2bca3a0c5c" class="bulleted-list"><li style="list-style-type:disc">이벤트 리스너 만들기<ul id="210e4d93-ee63-430a-a9c5-e5ad83ad1a2d" class="bulleted-list"><li style="list-style-type:circle">HTML태그내 작성<ul id="0a8051a5-9d2e-4d43-b396-27d12d6332f3" class="bulleted-list"><li style="list-style-type:square">리스너 코드가 짧은 경우</li></ul><pre id="f5423fde-86a5-46f2-9479-63274c10a18f" class="code"><code>&lt;!--마우스 올리면 orchid색으로 변경--&gt;
+&lt;p onmouseover=&quot;this.style.backgroundColor=&#x27;orchid&#x27;&quot;
+	onmouseover=&quot;this.style.backgroundColor=&#x27;white&#x27;&quot;&gt;
+&lt;/p&gt;</code></pre></li></ul><ul id="a354ee32-a696-4cb3-a7d8-6c30fa8a9542" class="bulleted-list"><li style="list-style-type:circle">DOM객체의 이벤트 리스너 프로퍼티에 작성<p id="615bc558-c440-4fcd-af46-859f039fce9f" class="block-color-red_background">target.<em>event_name=listener</em></p><ul id="8dfbe383-b6fa-401d-a259-3a3b773f925c" class="bulleted-list"><li style="list-style-type:square">함수의 이름만 등록해야함</li></ul><pre id="8de098aa-e42f-4ad6-a307-6b2ee594817e" class="code"><code>function over(){
+	...
+}
+
+let $p=document.getElementById(&quot;p&quot;);
+
+$p.onmouseover=over;</code></pre></li></ul><ul id="046acb0f-866a-4193-acd4-69cbf44d257a" class="bulleted-list"><li style="list-style-type:circle">DOM객체의 addEventListener()메소드 이용<p id="c9868d07-5801-4644-b97e-61b50d60b4b1" class="block-color-red_background">addEventListener(<em>event_name, listener</em>[<em> , use_capture</em>])<em>;</em></p><table id="5bb54c4d-c25f-4337-8522-ec9d99e83266" class="simple-table"><tbody><tr id="401e6b26-c779-46ff-9eaf-99c8e13547cb"><th id="`gWe" class="simple-table-header-color simple-table-header"><em>event_name</em></th><td id="Xh&gt;m" class="" style="width:436.0227355957031px">이벤트 타입을 나타내는 문자열</td></tr><tr id="a0ed4f54-3a52-4eb2-b710-2fedb1e15293"><th id="`gWe" class="simple-table-header-color simple-table-header"></th><td id="Xh&gt;m" class="" style="width:436.0227355957031px">click, load, keysown 등</td></tr><tr id="e9f3375c-c4d8-4c0d-80a4-6a43566cabf0"><th id="`gWe" class="simple-table-header-color simple-table-header"><em>listener</em></th><td id="Xh&gt;m" class="" style="width:436.0227355957031px">이벤트 리스너로 등록할 함수 이름</td></tr><tr id="c0045a64-9dbb-4563-a6ec-225fb6d51ddb"><th id="`gWe" class="simple-table-header-color simple-table-header"><em>use_capture, true</em></th><td id="Xh&gt;m" class="" style="width:436.0227355957031px">이벤트 흐름 중 캡쳐 단계에서 실행될 리스너(리스너 함수)등록</td></tr><tr id="c4498b82-e89f-4b40-a644-a4c2d379394a"><th id="`gWe" class="simple-table-header-color simple-table-header"><em>use_capture, false</em></th><td id="Xh&gt;m" class="" style="width:436.0227355957031px">버블 단계에서 실행될 리스너 등록</td></tr><tr id="7bf827cb-07d4-4418-89f0-14571fff9492"><th id="`gWe" class="simple-table-header-color simple-table-header"></th><td id="Xh&gt;m" class="" style="width:436.0227355957031px">생략가능, 디폴트는 false</td></tr></tbody></table><ul id="d30f16db-b5ce-409e-ba2b-9fd1cc91600d" class="bulleted-list"><li style="list-style-type:square">removeEventListener()메소드를 이용해 제거 가능</li></ul><ul id="4a472621-a84c-4adf-a676-0d9825edb176" class="bulleted-list"><li style="list-style-type:square">동일한 이벤트 리스너에 여러 함수를 중복해 등록가능</li></ul></li></ul><ul id="06b24c5c-f93e-489c-bd22-6a963cbfa958" class="bulleted-list"><li style="list-style-type:circle">익명함수로 이벤트 리스너 작성<p id="0b988639-0de8-462e-8d2f-c0276176022f" class="block-color-red_background">function(){...}</p><ul id="3a3e0129-c3b1-43ab-b51f-f83c31a009fc" class="bulleted-list"><li style="list-style-type:square">함수의 이름 없이 필요한 곳에 함수의 코드를 바로 작성</li></ul><ul id="2bf82845-cb3c-430b-9812-1f8411ae3bef" class="bulleted-list"><li style="list-style-type:square">코드가 짧거나 한곳에서만 사용하는 경우</li></ul><pre id="7eeefd29-a6ce-47c7-8a45-448ee97c41df" class="code"><code>p.onmouseover=function(){this.style.backgroundColor=&#x27;orchid&#x27;;};
+p.addEventListener(&quot;mouseover&quot;, function(){this.style.backgroundColor=&quot;orchid&quot;;});</code></pre></li></ul></li></ul><hr id="5a23b2bc-86be-4552-993a-0a50a12b3f83"/><h3 id="7ab07cc5-ac96-41d9-a1ee-6e129dd8dac3" class="">이벤트 객체</h3><ul id="cbf85dca-ec38-4192-b713-b33ef626a7ae" class="bulleted-list"><li style="list-style-type:disc">이벤트에 관련된 다양한 정보를 담음</li></ul><ul id="1471db45-dce0-4a7b-870a-3eff981e82f7" class="bulleted-list"><li style="list-style-type:disc">이벤트가 발생→ 이벤트 객체 생성→ 이벤트 리스너에 전달→ 이벤트 처리 후 이벤트 객체 소멸</li></ul><ul id="06987a70-c2a6-4939-9fed-69e6a0c68290" class="bulleted-list"><li style="list-style-type:disc">이벤트 리스너의 실행중에는 오직 한 개의 이벤트 객체</li></ul><ul id="d11e6bcf-7dde-4e64-a403-74d7f97e5e23" class="bulleted-list"><li style="list-style-type:disc">이벤트 리스너 함수의 첫 번째 매개변수로 전달</li></ul><ol type="1" id="0958571a-b9c5-4598-b62c-dd4298eeb470" class="numbered-list" start="1"><li>이름을 가진 이벤트 리스너 함수일때</li></ol><pre id="a60de80b-518c-4d14-bdac-48c3143ac1b4" class="code"><code>function f(e){
+	...
+}
+obj.onclick=f;</code></pre><ol type="1" id="8b24648a-0503-4f75-8dab-f556638aa7c9" class="numbered-list" start="2"><li>익명함수일때</li></ol><pre id="c0263f57-9287-431d-9fe9-aae9049a0602" class="code"><code>obj.onclick=function(e){
+	...
+}</code></pre><ol type="1" id="b2f60d85-eec9-4b4c-b5be-9ff08478860f" class="numbered-list" start="3"><li>HTML태그의 리스너</li></ol><pre id="817b77c8-f750-4639-acfc-64d851c8d709" class="code"><code>&lt;script&gt;
+	function f(e){
+		...
+	}
+...
+&lt;button onclick=&quot;f(event)&quot;&gt;버튼&lt;/button&gt;
+&lt;div onclick=&quot;alert(event.type)&quot;&gt;버튼&lt;/div&gt;</code></pre><hr id="ab9b40ee-64f1-4d86-abba-87d1fda64a67"/><ul id="9fa92f63-461a-4e15-a3f4-d7b16831dce8" class="bulleted-list"><li style="list-style-type:disc">이벤트 타겟<ul id="a127a2a4-0340-41c5-a906-b9a5e1a385bd" class="bulleted-list"><li style="list-style-type:circle">이벤트를 유발시킨 객체(태그)</li></ul><ul id="16be80c4-45ab-4d0a-99b5-53be9498a648" class="bulleted-list"><li style="list-style-type:circle">이벤트 객체들의 공통 멤버<table id="f0c1e2b5-47ea-42a7-a305-bb3f3eb4d42a" class="simple-table"><tbody><tr id="b36238a4-edd1-42c9-abcc-d8ff8eb854ba"><th id="=[DQ" class="simple-table-header-color simple-table-header">type</th><td id="fMq^" class="" style="width:390.9659118652344px">현재 발생한 이벤트의 종류를 나타내는 문자열(click, load 등)</td></tr><tr id="03302d33-7f35-49bc-a044-15da83f37d6c"><th id="=[DQ" class="simple-table-header-color simple-table-header">target</th><td id="fMq^" class="" style="width:390.9659118652344px">이벤트를 발생시킨 객체(DOM객체 or HTML태그)</td></tr><tr id="233a3917-43c4-464e-a389-e2fc11cff9a1"><th id="=[DQ" class="simple-table-header-color simple-table-header">currentTarget</th><td id="fMq^" class="" style="width:390.9659118652344px">현재 이벤트 리스너를 실행시키고 있는 DOM객체</td></tr><tr id="991a9a10-e765-443d-a9db-b2bb938f1c23"><th id="=[DQ" class="simple-table-header-color simple-table-header">defaultPrevented</th><td id="fMq^" class="" style="width:390.9659118652344px">이벤트의 디폴트 행동이 취소되었는지 나타내는 true/false값</td></tr><tr id="494edfa6-05f3-4632-9a4e-7825b2e3d352"><th id="=[DQ" class="simple-table-header-color simple-table-header">preventDefault()</th><td id="fMq^" class="" style="width:390.9659118652344px">이벤트의 디폴트 행동을 취소시키는 메소드</td></tr></tbody></table><hr id="b9dc8164-5a1a-4019-92a6-0616c17c05cd"/></li></ul><ul id="fa140d29-d7d6-4508-bf47-914053132f04" class="bulleted-list"><li style="list-style-type:circle">preventDefault<ol type="1" id="26aa641d-6efc-46c9-8f0d-345061dd516a" class="numbered-list" start="1"><li>return false</li></ol><pre id="09432755-2791-433d-b31b-6afd6c954a49" class="code"><code>&lt;a href=&quot;http://www.naver.com&quot; onclick=&quot;return false&quot;&gt;이동 안되는 링크&lt;/a&gt;</code></pre><ol type="1" id="c76c42e1-07f7-4b25-b863-6d3d35acbb8f" class="numbered-list" start="2"><li>.preventDefault()</li></ol><pre id="129e3f93-f3a7-4053-8499-803f65fc287b" class="code"><code>&lt;a href=&quot;http://www.naver.com&quot; onclick=&quot;event.preventDefault()&quot;&gt;이동 안되는 링크&lt;/a&gt;</code></pre></li></ul></li></ul><hr id="94cc32a7-e290-4499-8632-95f4260d4e37"/><ul id="0f978812-9240-4090-895a-f9ff1d25fd5c" class="toggle"><li><details open=""><summary>강의 예제</summary><ol type="1" id="2ecc7ddf-ced8-4a65-a4b2-45a86151ab44" class="numbered-list" start="1"><li>event handler</li></ol><p id="a0fb521e-221e-4a40-af3f-0165ac70aae4" class="block-color-red_background">target.<em>event_name</em>=c<em>all_back_function</em></p><pre id="30a6247b-5d42-4252-9600-2058373da38b" class="code"><code>const $div=document.querySelector(&#x27;.container&#x27;);
+const $form=document.querySelector(&#x27;form&#x27;);
+const $input=document.querySelector(&#x27;input&#x27;);
+const $button=document.querySelector(&#x27;button&#x27;);</code></pre><pre id="3df48d10-a9f4-4d12-8be6-002261cd50dd" class="code"><code>//1. 이벤트 핸들러
+//target.이벤트 이름=콜백함수
+
+$div.onclick=handleClick;//괄호 없음
+													//-&gt;콜백함수는 클릭이 이루어질때마다 함수를 자동적호출
+function handleClick(){
+	console.log(&#x27;clicked&#x27;);
+} </code></pre><pre id="7b247af0-6c82-4314-9538-53302f878de0" class="code"><code>$div.onclick=()=&gt;console.log(&quot;clicked&quot;);
+$div.onclick=()=&gt;alert(&quot;clicked&quot;);
+//같은 곳에 효과 -&gt; 최신것으로 덮어씀</code></pre><hr id="16773c8d-8883-471f-8c71-927d3e5fc806"/><ol type="1" id="697816c0-1bcc-4387-a29f-85deb12bb189" class="numbered-list" start="2"><li>addEventListener</li></ol><p id="7fe28a32-4377-4c59-808a-0fc67446a7ed" class="block-color-red_background">target.addEventListener(’<em>event_name</em>’, <em>call_back_function</em>);</p><p id="45f72ae0-b847-4171-a2ae-1873aa0d6ec6" class="block-color-red_background">target.addEventListener(’<em>event_name</em>’, <em>function_name</em>);</p><pre id="c07e4429-822e-49be-895d-401c58ec5525" class="code"><code>$div.addEventListener(&#x27;click&#x27;,()=&gt;console.log(&#x27;clicked&#x27;));
+$div.addEventListener(&#x27;click&#x27;,()=&gt;alert(&#x27;clicked&#x27;));
+//같은 곳에 효과 -&gt; 모두 적용</code></pre><hr id="00ff48ea-a80b-48f6-a484-8fd484a489cf"/><ol type="1" id="eab9bb51-84dd-4347-aed2-c4b6de6db670" class="numbered-list" start="3"><li>removeEventListener</li></ol><p id="c271b014-173b-43d5-86d8-ca051563b622" class="block-color-red_background">target.removeEventListener(’<em>event_name</em>’,<em>function_name</em>);</p><pre id="4c2eb0bc-8e3a-4b08-874d-053cafc3952f" class="code"><code>$div.addEventListener(&#x27;click&#x27;,()=&gt;handleClick);
+
+$div.addEventListener(&#x27;click&#x27;,()=&gt;alert(&#x27;clicked&#x27;));
+
+function handleClick(){
+	console.log(&#x27;clicked&#x27;);
+}
+
+$div.removeEventListener(&#x27;click&#x27;,handleClick);</code></pre><hr id="c6e6511f-1fe8-4185-b206-5596d5711a27"/><ol type="1" id="6f89c1a5-e0c7-41a6-81c0-4e1925f9bd6c" class="numbered-list" start="4"><li>event인자</li></ol><ul id="bd36732c-9469-447a-b158-f0598bb4f36b" class="bulleted-list"><li style="list-style-type:disc">이벤트 함수들은 이벤트에 대한 인자를 받을 수 있음</li></ul><pre id="8032c0c3-147d-4823-8649-e16eb7721866" class="code"><code>$div.addEventListener(&#x27;click&#x27;,()=&gt;handleClick);</code></pre><pre id="5b55b9e8-aec3-41c4-b192-14e3402e3fcd" class="code"><code>function handleClick(event){
+	console.log(event);
+} </code></pre><pre id="5d2acf0c-62de-4204-b126-7718f03e3912" class="code"><code>//이벤트 대상 태그 출력
+function handleClick(event){
+	console.log(event.target);
+} </code></pre><pre id="a3e55575-1df5-406d-aead-2d5fc4e99927" class="code"><code>//InnerText출력
+function handleClick(event){
+	console.log(event.target.innerText);
+} </code></pre><hr id="94576f16-a824-4221-8514-37f46a5a653c"/><pre id="d8f79fcb-dc6c-48fc-aba3-b87ba73b9817" class="code"><code>$input.addEventListener(&#x27;change&#x27;,handleChange);</code></pre><pre id="f354058d-e486-4bb1-ba14-a6a7a7b737df" class="code"><code>function handleChange(event){
+	console.log(event.target);
+}//다른 곳으로 가져가야 입력깂이 보임</code></pre><pre id="a12d709a-b658-4f95-9c37-d9a6372ba528" class="code"><code>function handleChange(event){
+	console.dir(event.target);//객체에 대한 정보확인 가능
+}</code></pre><pre id="e0387125-a51d-4d24-a3cd-354249f25d25" class="code"><code>function handleChange(event){
+	console.log(event.target.value);//input 값 볼 수 있음
+}</code></pre><hr id="86ecf1cf-7bd9-49c6-9f5c-36fc5cff1f49"/><ol type="1" id="1286b430-27f8-4f8d-9850-e280dcd9350a" class="numbered-list" start="5"><li>.preventDefault()</li></ol><ul id="f97bebad-904c-4f50-9943-997fad23cc28" class="bulleted-list"><li style="list-style-type:disc">submit→reset됨 방지</li></ul><pre id="5d5ad2cd-4df4-4c66-9943-9c8de9a9b177" class="code"><code>$form.addEventListener(&#x27;submit&#x27;,handleSubmit);
+
+function handleSubmit(event){
+	event.preventDefault();//reset방지
+	const inputValue=$input.value;//값에 바로 접근해 변수 접근가능
+	console.log(inputValue);
+	$input.value=&#x27;&#x27;;//input창 초기화
+	
+}</code></pre></details></li></ul><h1 id="37032a24-90f8-448b-b026-284aa7b99285" class="">5주차 수업 후기 📢</h1><ul id="c8556bdc-5564-431c-abe1-28eebab2abcd" class="bulleted-list"><li style="list-style-type:disc">5주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="f7237d8a-6978-42e5-8e6e-683d91ff6e04" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="a709a64b-7b1f-4900-be98-ba72d020c415" class=""><strong>실습 체크리스트✅</strong></h1><ul id="ebb8344b-2a53-4687-8440-305307386f92" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">왜 $div.onClick와 같은 방식 대신 addEventListener를 사용하시는지 이해하셨나요?</span><p id="3d1d2ee8-b6b6-4217-a602-3adff7dbba9c" class="">addEventListener를 사용하면 덮어 써지지않아 동시에 사용가능</p></li></ul><ul id="a6fe3394-fa0a-4d34-aaca-0458e3b1e64e" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">preventDefault()를 사용하는 이유가 무엇인지 이해하셨나요?</span><p id="0e406060-6546-4f42-8e8a-eaad93c9726e" class="">특정 이벤트의 디폴트 행동을 취소할 때</p></li></ul><ul id="3b6adfd2-0e28-4d58-9512-72c80b6abdac" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">addEventListener를 통해 핸들러 함수를 실행할 때, 파라미터를 넣어주려면 어떻게 해야하는지 조사하고 하단에 코드를 적어주세요.</span><pre id="858fe1d6-5fc9-472e-875d-42f63bb234df" class="code code-wrap"><code>$parameter.addEventListener(&#x27;p&#x27;,P);
+$parameter.addEventListener(&#x27;p&#x27;,()=&gt;P());
+//첫 번째 인자로 해당event
+//두 번째 인자로 이벤트 발생 시 실행될 listener 함수
+
+$parameter.addEventListener(&#x27;p&#x27;,P(num));
+$parameter.addEventListener(&#x27;p&#x27;,(event)=&gt;P(event,&#x27;num&#x27;));</code></pre></li></ul><h1 id="08636c69-f3f6-45e8-9135-5548af1f2564" class=""> !주의사항</h1><p id="b0bf885d-c3aa-461f-8d5a-48a481e39a28" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="6395617b-6b9a-4f41-afc5-d5c28d70b53c" class="">논의해보면 좋은 것들 🔥</h1><ul id="c4fd5fa3-3405-4b50-a6da-e0774d72f847" class="bulleted-list"><li style="list-style-type:disc">addEventListener에 필요한 인자들에 대해 알아보기</li></ul><ul id="f015bce1-11dd-4991-b74e-544ef620311d" class="bulleted-list"><li style="list-style-type:disc">JavaScript 이벤트의 종류에 대해 조사하기</li></ul><p id="c98e3820-aac0-4dd5-8890-df28b087347d" class="">
+</p></div></article></body></html>

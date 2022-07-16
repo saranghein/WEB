@@ -1,0 +1,698 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web 1주차 워크북</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b1bf7037-a4d7-4532-ba24-69741c906c95" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">1️⃣</span></div><h1 class="page-title">Web 1주차 워크북</h1></header><div class="page-body"><h1 id="5f5103ff-40fd-4b29-85a1-868be8fdc802" class="">핵심 키워드 🎯 </h1><ul id="e24e0a85-16d3-4001-b5e1-e4cde86d0aec" class="toggle"><li><details open=""><summary>Web</summary><ul id="0dc0345d-d331-4a23-b40b-c78011c42bf6" class="toggle"><li><details open=""><summary>웹이란 무엇일까?</summary><p id="6ae6b82f-8402-4670-9c22-e8857c802d79" class="">인터넷에서 정보를 교환하는 시스템</p></details></li></ul><ul id="5e2ba43d-649e-41c5-bc84-c2f991e206b5" class="toggle"><li><details open=""><summary>웹의 역사</summary><p id="b3597dcb-4b28-4720-bd97-0817a40ae485" class="">Tim Berners-Lee의 아이디어에서 시작
+ 1989년 웹 개념 제안
+ 1990년 WorldWideWeb 프로젝트 시작
+◼ 서버-클라이언트로 동작하는 HTTP 모델 창시
+◼ HTML 언어 개발, 하이퍼링크 개념 구현
+◼ 세계 최초의 웹 서버와 웹 브라우저 개발</p><p id="581d5dfc-9b97-47ec-b504-18c466cdc04f" class="">
+</p></details></li></ul></details></li></ul><ul id="c83a6cd1-69c1-4fbc-9c44-df3486928309" class="toggle"><li><details open=""><summary>웹의 특징</summary><ul id="1c16633a-89f1-4cb9-ab9f-f575116ff73b" class="bulleted-list"><li style="list-style-type:disc">만들기 쉬운 웹 문서
+사용하기 쉬운 HTML 태그 언어, 단순하고 직관적
+HTML 태그의 웹 페이지는 텍스트 문서
+아무 텍스트 편집기로 편집 가능</li></ul><ul id="229a45ac-b45e-42e4-8c73-c60bedb759bd" class="bulleted-list"><li style="list-style-type:disc">효율적인 HTTP 통신
+웹 브라우저가 웹 페이지를 모두 전송 받고 나면 웹 서버와의 접속을 끊는 방식
+웹 서버에 많은 웹 브라우저의 동시 접속에 따른 낮은 부담</li></ul><ul id="13e009ed-a5d0-4f43-a6f4-21984be4e0a8" class="bulleted-list"><li style="list-style-type:disc">웹 서버와 웹 브라우저의 작업 분담
+웹 서버는 웹 브라우저로부터 요청 받은 자원 전송 담당
+웹 문서를 출력하는 것은 브라우저의 몫
+웹 서버의 낮은 부하로 많은 동시 접속자 지원</li></ul></details></li></ul><ul id="d1b1ef56-1f44-401c-9ed9-e3e3bb859642" class="toggle"><li><details open=""><summary>HTML</summary><p id="3ee143cb-bfd1-4e6d-8c5e-0d1e1c34274b" class="">Hyper Text(링크) Markup(교정부호)</p><p id="1e8a0300-3e10-4e0a-845c-1e6e55bf42dd" class="">Element: &lt;opening tag&gt;Content&lt;/closing tag&gt;</p><ul id="30e819f1-97bd-44c3-bd63-fdd77b7c8ae1" class="toggle"><li><details open=""><summary>DOM(Document Object Model)</summary><p id="66253dc4-d3cb-4b53-a630-41c95ac7d90c" class="">문서 객체 모델
+프로그램 코딩을 통해서 접근 가능하도록 체계적으로 작성된 문서 모델</p></details></li></ul><ul id="a3417527-4b70-48e3-a22a-1870fe954696" class="toggle"><li><details open=""><summary>태그</summary><ul id="2a8756d2-d08f-4d41-9494-0ed98c328a56" class="bulleted-list"><li style="list-style-type:disc">태그 : 블록 태그와 인라인 태그로 구분
+    블록 태그 ex) &lt;p&gt;, &lt;h1&gt;, &lt;div&gt;, &lt;ul&gt;
+    인라인 태그 ex) &lt;strong&gt;, &lt;a&gt;, &lt;img&gt;, &lt;span&gt;</li></ul><ul id="a0f51d21-63f9-417f-bc45-b18fe9623eff" class="bulleted-list"><li style="list-style-type:disc">블록 태그
+항상 새 라인에서 시작하여 출력
+양 옆에 다른 콘텐츠 배치하지 않고 한 라인 독점 사용
+&lt;div&gt;</li></ul><ul id="542c231f-d8ed-45c0-ad5d-1424a98ada18" class="bulleted-list"><li style="list-style-type:disc">인라인 태그
+블록 속에 삽입되어 블록의 일부로 출력
+&lt;span&gt;</li></ul></details></li></ul></details></li></ul><ul id="ed2452e7-6c59-40a9-ad18-16b32b90c5ad" class="toggle"><li><details open=""><summary>HTML 태그들</summary><ul id="dd1584cd-65b9-45f3-99f8-5bb5cf6478db" class="toggle"><li><details open=""><summary>&lt;!DOCTYPE html&gt;</summary></details></li></ul><ul id="0a484703-34a3-4249-9691-25d06296f9fd" class="toggle"><li><details open=""><summary>&lt;html lang=”en”&gt;</summary></details></li></ul><ul id="44ada841-edd7-4a82-92fe-5c29e67c6cbe" class="toggle"><li><details open=""><summary>&lt;head&gt;</summary><p id="68b240cf-50fc-4b6d-aec6-b66476827df4" class="">메타 태그들이 작성됨</p><table id="01027971-9ea1-40c0-ba7a-b6824d7d52f5" class="simple-table"><tbody><tr id="b5ed6ed5-5586-4d26-a3d8-634cc66137ce"><td id="Lxb_" class="block-color-yellow_background">&lt;meta&gt;</td><td id="dhNF" class="block-color-yellow_background"></td></tr><tr id="b9812e8d-a9eb-4328-a7f2-132f736b9a9b"><td id="Lxb_" class="block-color-gray_background">&lt;title&gt;</td><td id="dhNF" class="block-color-gray_background"></td></tr><tr id="8d9e6490-8481-43d2-8352-654e72c64ba5"><td id="Lxb_" class=""></td><td id="dhNF" class=""></td></tr></tbody></table></details></li></ul><ul id="d654f564-d672-437f-bc55-4b2590173cbf" class="toggle"><li><details open=""><summary>&lt;body&gt;</summary><p id="c12c9915-0dcf-4407-b458-8c0e334bb9ba" class="block-color-yellow_background">&lt;self closing tag/&gt;</p><ul id="a7b55ad6-1ce3-414f-b577-d453c06745bc" class="toggle"><li><details open=""><summary>tag</summary><table id="16d6d726-c9a6-4569-bd18-190a7e98e02a" class="simple-table"><tbody><tr id="1e037942-4195-4038-86a2-b6c992417b5b"><td id="EEtf" class="block-color-gray_background" style="width:156.4250030517578px">&lt;h1&gt;, &lt;h2&gt;, ... , &lt;h6&gt;</td><td id="UQb?" class="block-color-gray_background" style="width:251.60000610351562px">헤더 태그(폰트 굵기 크기 작아짐)</td></tr><tr id="b11f38fe-9814-4df8-b3d1-f873d14c7f23"><td id="EEtf" class="block-color-gray_background" style="width:156.4250030517578px">&lt;pre&gt;</td><td id="UQb?" class="block-color-gray_background" style="width:251.60000610351562px">사용자가 입력한 그대로 출력</td></tr><tr id="45ae5909-3fad-4c33-9628-44941b738fdb"><td id="EEtf" class="block-color-gray_background" style="width:156.4250030517578px">&lt;div&gt;</td><td id="UQb?" class="block-color-gray_background" style="width:251.60000610351562px">레이아웃 태그, 블록태그 (남발 주의)</td></tr><tr id="37b421fd-8cb2-4306-95b8-08ebea36d403"><td id="EEtf" class="block-color-yellow_background" style="width:156.4250030517578px">&lt;span&gt;</td><td id="UQb?" class="block-color-yellow_background" style="width:251.60000610351562px">레이아웃 태그, 인라인 태그</td></tr><tr id="8e6b7261-f859-4364-aaa7-321c25e8a3dd"><td id="EEtf" class="block-color-yellow_background" style="width:156.4250030517578px">&lt;hr&gt;</td><td id="UQb?" class="block-color-yellow_background" style="width:251.60000610351562px">수평선 긋기</td></tr><tr id="8ff63ed7-65af-401d-8651-b6ecd92ba2cd"><td id="EEtf" class="block-color-yellow_background" style="width:156.4250030517578px">&lt;br&gt;</td><td id="UQb?" class="block-color-yellow_background" style="width:251.60000610351562px">태그로 새로운 줄로 넘어가기</td></tr><tr id="6de5285c-72a7-48c5-8ead-b0a5adcbb45f"><td id="EEtf" class="block-color-gray_background" style="width:156.4250030517578px">&lt;p&gt;</td><td id="UQb?" class="block-color-gray_background" style="width:251.60000610351562px">단락 나누기(여러 개의 빈칸은 하나로,
+여러 줄은 한 줄에 붙여 출력)</td></tr><tr id="8276bfef-865e-4499-8ef1-93950e6bd286"><td id="EEtf" class="" style="width:156.4250030517578px"></td><td id="UQb?" class="" style="width:251.60000610351562px"></td></tr></tbody></table></details></li></ul><ul id="640313d0-c3be-4a9d-aedc-9479c8ff7a79" class="toggle"><li><details open=""><summary>시맨틱 태그</summary><table id="585a1cec-bf00-4177-9be0-c18c4a1e0eb9" class="simple-table"><tbody><tr id="e5413d8a-4a6c-4747-9eea-efb743fbba4b"><td id="bt[Z" class="block-color-gray_background" style="width:61.025001525878906px"></td><td id="fexg" class="block-color-gray_background" style="width:83.75px"><strong>&lt;header&gt;</strong></td><td id="FfdC" class="block-color-gray_background" style="width:71.32500457763672px"></td></tr><tr id="f0be5c28-bbaf-487d-b175-8fdc6e571809"><td id="bt[Z" class="" style="width:61.025001525878906px"><strong>&lt;nav&gt;</strong></td><td id="fexg" class="" style="width:83.75px"><strong>&lt;section&gt;</strong></td><td id="FfdC" class="" style="width:71.32500457763672px"><strong>&lt;aside&gt;</strong></td></tr><tr id="4712013c-38c4-4707-8b87-afecf3e379f0"><td id="bt[Z" class="" style="width:61.025001525878906px"></td><td id="fexg" class="" style="width:83.75px"><mark class="highlight-gray">&lt;header&gt;</mark></td><td id="FfdC" class="" style="width:71.32500457763672px"></td></tr><tr id="136181ec-60c1-4cd7-bb21-bbff8f403e6a"><td id="bt[Z" class="" style="width:61.025001525878906px"></td><td id="fexg" class="" style="width:83.75px"><mark class="highlight-gray">&lt;article&gt;</mark></td><td id="FfdC" class="" style="width:71.32500457763672px"></td></tr><tr id="76ee629a-20e0-4a63-802c-e65a1c5d4521"><td id="bt[Z" class="" style="width:61.025001525878906px"></td><td id="fexg" class="" style="width:83.75px"><mark class="highlight-gray">&lt;footer&gt;</mark></td><td id="FfdC" class="" style="width:71.32500457763672px"></td></tr><tr id="e0d57c53-7e91-4b49-b5c1-f71bbc566c0c"><td id="bt[Z" class="block-color-gray_background" style="width:61.025001525878906px"></td><td id="fexg" class="block-color-gray_background" style="width:83.75px"><strong>&lt;footer&gt;</strong></td><td id="FfdC" class="block-color-gray_background" style="width:71.32500457763672px"></td></tr></tbody></table></details></li></ul><ul id="ac34778b-5b02-43ca-ad6f-2390b2e6beea" class="toggle"><li><details open=""><summary>list</summary><table id="22c1212e-5976-4a12-a7b9-ef3d46c4a9a3" class="simple-table"><tbody><tr id="e5f23d24-602b-4a19-bc31-4b5d9d4b5c74"><td id="^ttP" class="block-color-gray_background">&lt;ul&gt;</td><td id="K\hW" class="block-color-gray_background">순서없는 list</td></tr><tr id="65556ae5-be6d-4481-8422-e33ac1635db3"><td id="^ttP" class="block-color-gray_background">&lt;ol&gt;</td><td id="K\hW" class="block-color-gray_background">순서 있는 list</td></tr><tr id="26f31a96-79ae-46c1-bcec-ed284370fa1f"><td id="^ttP" class="block-color-gray_background">&lt;li&gt;</td><td id="K\hW" class="block-color-gray_background">list item</td></tr></tbody></table></details></li></ul><ul id="8b57295e-7f54-4889-8353-e43f3cf41b12" class="toggle"><li><details open=""><summary>video</summary><table id="a9c49370-afa2-4bc3-bcaa-75927ee7374d" class="simple-table"><tbody><tr id="2537a899-9b89-4929-8bd3-75a527241c2e"><td id="UXs^" class="block-color-gray_background">&lt;video</td><td id="fT_`" class="block-color-gray_background" style="width:255.53750610351562px"><mark class="highlight-gray">속성</mark></td><td id="L?T`" class="block-color-gray_background" style="width:34.03750228881836px">&gt;</td></tr><tr id="18f13e42-c261-4a6d-846f-bfc1e18d064d"><td id="UXs^" class=""></td><td id="fT_`" class="" style="width:255.53750610351562px">controls(valueX)</td><td id="L?T`" class="" style="width:34.03750228881836px"></td></tr><tr id="2193179e-2b2a-4c22-b026-8f387d274dce"><td id="UXs^" class=""></td><td id="fT_`" class="" style="width:255.53750610351562px">width, height</td><td id="L?T`" class="" style="width:34.03750228881836px"></td></tr><tr id="a2b7831a-d6fb-4c9b-937d-0d50d59d375b"><td id="UXs^" class=""></td><td id="fT_`" class="" style="width:255.53750610351562px">autoplay(자동재생)</td><td id="L?T`" class="" style="width:34.03750228881836px"></td></tr><tr id="62c03e1b-dba4-48f3-bf92-0e45e59dc60c"><td id="UXs^" class=""></td><td id="fT_`" class="" style="width:255.53750610351562px">content는 video지원이 안될 때 보여짐</td><td id="L?T`" class="" style="width:34.03750228881836px"></td></tr><tr id="1830e05f-9d1f-41cf-96b5-b47694e3b626"><td id="UXs^" class="block-color-yellow_background">&lt;source</td><td id="fT_`" class="block-color-yellow_background" style="width:255.53750610351562px"></td><td id="L?T`" class="block-color-yellow_background" style="width:34.03750228881836px">/&gt;</td></tr><tr id="2552fe14-3cfc-432e-b98f-1b702eabbc7a"><td id="UXs^" class=""></td><td id="fT_`" class="" style="width:255.53750610351562px">src{주소}</td><td id="L?T`" class="" style="width:34.03750228881836px"></td></tr><tr id="9339141c-3d2b-4448-a317-75c9a75a15c9"><td id="UXs^" class=""></td><td id="fT_`" class="" style="width:255.53750610351562px">type</td><td id="L?T`" class="" style="width:34.03750228881836px"></td></tr></tbody></table></details></li></ul><ul id="d70805b9-1292-4de0-94e5-f80b6b0daa1a" class="toggle"><li><details open=""><summary>image</summary><table id="a01ac29d-1a1b-4068-a9d8-9979dc86b96c" class="simple-table"><tbody><tr id="930ab242-f849-4530-99d2-a07a7f1ad25c"><td id="v;EH" class="block-color-yellow_background">&lt;image</td><td id="wos^" class="block-color-yellow_background" style="width:247.72500610351562px"><mark class="highlight-gray">속성</mark></td><td id="emZY" class="block-color-yellow_background" style="width:34.03750228881836px">/&gt;</td></tr><tr id="70618bf4-7f0c-4ef0-ad14-e470e9daf030"><td id="v;EH" class=""></td><td id="wos^" class="" style="width:247.72500610351562px">alt(이미지를 출력 할 수 없을 때 출력)</td><td id="emZY" class="" style="width:34.03750228881836px"></td></tr></tbody></table></details></li></ul><ul id="82ab0160-fd73-454f-817d-6767d5169f08" class="toggle"><li><details open=""><summary>form(web form)</summary><p id="1a473112-50c6-4a5e-9fa8-104c28babec9" class="">form: 사용자의 입력을 받음</p><table id="382bcf5d-100c-4105-8c1b-854a26eed0be" class="simple-table"><tbody><tr id="0fb0f361-00fe-4141-9593-5e42e5423316"><td id="`&lt;z:" class="block-color-gray_background">&lt;form&gt;</td><td id="&lt;:AX" class="block-color-gray_background"></td><td id="YWtp" class="block-color-gray_background" style="width:170.5124969482422px"></td><td id="tpgT" class="block-color-gray_background" style="width:28.587499618530273px">&gt;</td></tr><tr id="dd7d5764-86aa-4d03-b90b-b7c3e214aac6"><td id="`&lt;z:" class=""></td><td id="&lt;:AX" class="">action</td><td id="YWtp" class="" style="width:170.5124969482422px">URL</td><td id="tpgT" class="" style="width:28.587499618530273px"></td></tr><tr id="cd56be90-e275-40af-9fec-cb5bc4289936"><td id="`&lt;z:" class=""></td><td id="&lt;:AX" class="">enctype</td><td id="YWtp" class="" style="width:170.5124969482422px">인코딩 타입</td><td id="tpgT" class="" style="width:28.587499618530273px"></td></tr><tr id="6463d6c2-1c7a-45a5-8ccc-88ae976b9a5d"><td id="`&lt;z:" class=""></td><td id="&lt;:AX" class="">method</td><td id="YWtp" class="" style="width:170.5124969482422px">전송방식(GET/POST)</td><td id="tpgT" class="" style="width:28.587499618530273px"></td></tr><tr id="bc46fa4b-2525-4699-b6c3-d73b684c4acd"><td id="`&lt;z:" class=""></td><td id="&lt;:AX" class="">target</td><td id="YWtp" class="" style="width:170.5124969482422px">전송받은 데이터 출력할 
+윈도우 이름</td><td id="tpgT" class="" style="width:28.587499618530273px"></td></tr><tr id="b555f31f-da2e-491f-9777-6a1dba4557d9"><td id="`&lt;z:" class=""></td><td id="&lt;:AX" class="">name</td><td id="YWtp" class="" style="width:170.5124969482422px">form이름 지정</td><td id="tpgT" class="" style="width:28.587499618530273px"></td></tr><tr id="e7f1eccc-c6c6-4465-87d3-d831492f624d"><td id="`&lt;z:" class=""></td><td id="&lt;:AX" class=""></td><td id="YWtp" class="" style="width:170.5124969482422px"></td><td id="tpgT" class="" style="width:28.587499618530273px"></td></tr></tbody></table><p id="aa7660ed-88e6-41a6-90d5-38f47bf4f467" class="">다양한 form요소(태그)
+    웹서버에 전송하지 않을 경우&lt;form&gt;없이도 사용가능</p><table id="158b8a04-539f-4ce1-ac60-91e5483fd94b" class="simple-table"><tbody><tr id="ac233cde-a5bf-48d5-850c-8f3f315d248b"><td id="]vkl" class="block-color-yellow_background">&lt;input</td><td id="V}^j" class="block-color-yellow_background"></td><td id="{mA?" class="block-color-yellow_background" style="width:28.587499618530273px">&gt;</td></tr><tr id="34248f7e-19ea-48fc-b3f8-004f44cf260b"><td id="]vkl" class=""></td><td id="V}^j" class=""></td><td id="{mA?" class="" style="width:28.587499618530273px"></td></tr><tr id="12ec39a5-dd70-4e9d-8df5-9f42025a3fc0"><td id="]vkl" class=""></td><td id="V}^j" class=""></td><td id="{mA?" class="" style="width:28.587499618530273px"></td></tr></tbody></table></details></li></ul><p id="9f6069fd-5ec2-470c-9414-604199585af5" class="">
+</p></details></li></ul></details></li></ul><h1 id="7e04358f-ecb9-4913-8aa1-102ad704c292" class="">1주차 수업 후기 📢</h1><ul id="b85b6543-fd96-44f8-a30e-629725b14d0f" class="bulleted-list"><li style="list-style-type:disc">1주차 <strong>수업을 듣고 서로 느낀 점을 이야기해주세요!</strong></li></ul><ul id="c203f09d-e1f3-4876-9c2e-1bf757d3d617" class="bulleted-list"><li style="list-style-type:disc"><strong>핵심 키워드에 대해 완벽하게 이해했는지? 혹시 이해가 안 되는 부분은 뭐였는지?
+서로 이야기해주세요!</strong></li></ul><h1 id="703b79ab-fa09-4727-a6ea-661a1d0b768d" class=""> !주의사항</h1><p id="207b2bb5-a78f-4a3a-8daf-d7fd36b54bde" class="">1. <strong>과제 피드백 기반 진행입니다</strong> - 한명씩 본인의 <strong>과제를 발표</strong>하는 시간 그리고 해온 <strong>과제에 대한 피드백</strong>을 하는 시간 (ex:전 이렇게 생각해서 이런 부분 다르게 해왔는데 저것도 괜찮은 것 같아요!)이 <strong>무조건 기반</strong>이 되어야 합니다!
+2. 부가적으로 <strong>워크북에서 제공되는 키워드 혹은 강의에서 들은 디테일 적인 부분</strong>에서 더 토의해봐도 좋을 것 같습니다</p><h1 id="f8e9d334-e71f-4c8a-af70-b07ecd8d9998" class="">논의해보면 좋은 것들 🔥</h1><ul id="05ce32ae-3084-451d-91e5-88b0343a0f8c" class="bulleted-list"><li style="list-style-type:disc">한 사이트에서 html의 구조 파악해보기</li></ul><ul id="7a34756a-63ec-4c14-b410-55154be6c243" class="bulleted-list"><li style="list-style-type:disc">html의 중요 태그들 살펴보기</li></ul><ul id="b1026f58-bad9-473f-865c-ead7ab515ffa" class="bulleted-list"><li style="list-style-type:disc">html의 역할 알아보기</li></ul><p id="8f08b7c9-f203-4929-bc1a-e38e9cc7f390" class="">
+</p></div></article></body></html>
